@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GernikaApp</string>
+    <string name="btn_continuar">Continuar</string>
+    <string name="texto_bienvenida">Descubre los secretos de Gernika</string>
 </resources>

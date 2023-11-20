@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ArbolGernika" />
+        app:srcCompat="@drawable/arbol" />
 
     <Button
         android:id="@+id/button"
@@ -29,7 +29,7 @@
         android:layout_marginEnd="33dp"
         android:layout_marginBottom="36dp"
         android:backgroundTint="#05884A"
-        android:text="Continuar"
+        android:text="@string/btn_continuar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -43,7 +43,8 @@
         android:layout_marginBottom="152dp"
         android:fontFamily="@font/uncial_antiqua"
         android:gravity="center"
-        android:text="Descubre los secretos de Gernika"
+        android:alpha="0"
+        android:text="@string/texto_bienvenida"
         android:textSize="33sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
