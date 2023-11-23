@@ -6,17 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
 import com.bumptech.glide.Glide;
 
-
-public class Puzzle extends AppCompatActivity {
+public class FotoIglesia extends AppCompatActivity {
 
     ImageView img_ComingSoon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_puzzle);
+        setContentView(R.layout.activity_foto_iglesia);
 
         //Llamamos a la imagen
         img_ComingSoon = findViewById(R.id.img_ComingSoon);
@@ -31,11 +31,9 @@ public class Puzzle extends AppCompatActivity {
         img_ComingSoon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent irBunker = new Intent(Puzzle.this, Bunker.class);
-                startActivity(irBunker);
+
             }
         });
-
 
     }
 }

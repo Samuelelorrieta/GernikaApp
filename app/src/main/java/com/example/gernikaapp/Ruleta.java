@@ -2,19 +2,16 @@ package com.example.gernikaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-public class Bunker extends AppCompatActivity {
+public class Ruleta extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bunker);
+        setContentView(R.layout.activity_ruleta);
 
 
-        //Intent irBunker = new Intent(Bunker.this, FotoIglesia.class);
-        //startActivity(irBunker);
 
     }
 }
