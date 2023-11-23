@@ -9,6 +9,8 @@
     <string name="textoProfe3">-Lehena "Astra" ren babesleku gisa ezagutzen da gaur egun. Astra 400 "Purua" pistola enblematikotik dator izen hori.</string>
     <string name="textoProfe4">-Gernikako Tailerren bigarren aterpea 22 metroko luzera eta 5 metroko zabalera duen egitura da, eta metro bateko lodiera duten horma sendoek osatzen dute.</string>
     <string name="textoProfe5">Hormigoizko bi eraikin horiek sabai faltsu baten azpian "disimulatuta" zeuden, bonbardaketan parte hartu zuten hegazkinek identifikatu ez zitzaten.</string>
-    <string name="pegunta">Bunker honen luzera 22 metrokoa da eta bere zabalera 5 metrokoa da. Zenbat pertsona sartuko lirateke bunkerrean, metro karratu bakoitzean 4 pertsona sartzen badira?</string>
+    <string name="pregunta">Bunker honen luzera 22 metrokoa da eta bere zabalera 5 metrokoa da. Zenbat pertsona sartuko lirateke bunkerrean, metro karratu bakoitzean 4 pertsona sartzen badira?</string>
     <string name="respuesta">440</string>
+    <string name="refugio_antiaereo">Refugio Antiaereo</string>
+    <string name="validar">Validar</string>
 </resources>
