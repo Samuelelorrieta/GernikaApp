@@ -1,8 +1,11 @@
 package com.example.gernikaapp;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,5 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
         // Iniciar la animación
         animator.start();
+
+        Button botonContinuar=findViewById(R.id.button);
+        Intent continuar = new Intent(this, CancionArboleda.class);
+        botonContinuar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(continuar);
+            }
+        });
     }
 }
