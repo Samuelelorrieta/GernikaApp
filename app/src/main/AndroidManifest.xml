@@ -13,7 +13,7 @@
         android:theme="@style/Theme.GernikaApp"
         tools:targetApi="31">
         <activity
-            android:name=".Bunker"
+            android:name=".CancionArboleda"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

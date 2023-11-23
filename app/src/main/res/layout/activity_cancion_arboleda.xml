@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/azul_fondo"
+    tools:context=".CancionArboleda">
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="265dp"
+        android:layout_height="89dp"
+        android:text="Rellena los huecos de la canción"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="406dp"
+        android:layout_height="362dp"
+        android:text="Gernikako arbola da bedeinkatua Euskaldunen artean guztiz 1-........... Eman ta zabal zazu munduan frutua adoratzen zaitugu arbola santua  Mila urte inguru da esaten dutela Jainkoan jarri zuela Gernikako arbola. Zaude bada zutikan orain da denbora eroritzen bazera arras galdu gera  Ez zera eroriko arbola maitea baldin portatzen bada Bizkaiko Juntia. Laurok hartuko degu zurekin partea pakian bizi dedin euskaldun jendia.  Betiko bizi dedin Jaunari eskatzeko jarri gaitezen danok laister belauniko. Eta bihotzetikan eskatu ezkero arbola biziko da orain eta gero.  Arbola botatzia dutena pentsatu Euskal Herri guztian denak badakigu. Ea bada jendia denbora orain degu erori gabetanik eduki behar degu.  Beti egongo zera udaberrikoa lore aintzinetako mantxa gabekoa. Erruki zaite, bada, bihotz gurekoa denbora galdu gabe emanik frutua.  Arbolak erantzun du kontuz bizitzeko eta bihotzetikan Jaunari eskatzeko, gerrarik nahi ez degu pakea betiko, gure lege zuzenak hemen maitatzeko.  Erregutu diogun Jaungoiko Jaunari pakea emateko orain eta beti. Baita indarra ere zerorren lurrari eta bendizioa Euskal Herriari."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.352" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
