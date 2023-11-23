@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
         animator.start();
 
         Button botonContinuar=findViewById(R.id.button);
-        Intent continuar = new Intent(this, CancionArboleda.class);
+        Intent irPuzzle = new Intent(this, Puzzle.class);
         botonContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(continuar);
+                startActivity(irPuzzle);
             }
         });
     }
