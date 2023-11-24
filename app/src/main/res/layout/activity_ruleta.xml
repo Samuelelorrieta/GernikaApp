@@ -1,11 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/azul_fondo"
-    android:backgroundTint="@color/azul_fondo"
-    tools:context=".Ruleta">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/azul_fondo"
+        android:backgroundTint="@color/azul_fondo"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/wheel"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/wheel"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.364" />
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_marginEnd="11dp"
+            android:src="@drawable/spin_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/wheel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/wheel" />
+
+        <TextView
+            android:id="@+id/lbl_Ruleta"
+            android:layout_width="299dp"
+            android:layout_height="89dp"
+            android:gravity="center"
+            android:text="@string/lbl_Nombre_ruleta"
+            android:textSize="60sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.047" />
+
+        <TextView
+            android:id="@+id/lbl_descripcion"
+            android:layout_width="361dp"
+            android:layout_height="93dp"
+            android:gravity="center"
+            android:text="@string/lbl_Descripcion"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.716" />
+
+        <TextView
+            android:id="@+id/lbl_Letra_Seleccionada"
+            android:layout_width="219dp"
+            android:layout_height="141dp"
+            android:gravity="center"
+            android:text="@string/lbl_Ejemplo"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.851" />
+
+        <EditText
+            android:id="@+id/txt_Pueblo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_pueblo_ciudad_1"
+            android:enabled="false"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_Letra_Seleccionada"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/txt_Pueblo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_pueblo_ciudad_2"
+            android:enabled="false"
+            app:layout_constraintTop_toBottomOf="@+id/txt_Pueblo1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/txt_Pueblo3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_pueblo_ciudad_3"
+            android:enabled="false"
+            app:layout_constraintTop_toBottomOf="@+id/txt_Pueblo2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <Button
+            android:id="@+id/btn_Comprobar"
+            android:layout_width="195dp"
+            android:layout_height="80dp"
+            android:backgroundTint="#05884A"
+            android:text="@string/btn_comprobar"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_Ruleta"
+            app:layout_constraintVertical_bias="0.028" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
