@@ -5,30 +5,435 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/azul_fondo"
-    tools:context=".CancionArboleda">
+    tools:context=".CancionArboleda"
+    tools:layout_editor_absoluteX="11dp"
+    tools:layout_editor_absoluteY="0dp">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="265dp"
-        android:layout_height="89dp"
-        android:text="Rellena los huecos de la canción"
+    <ImageView
+        android:id="@+id/equis9"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/incorrecto"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintHorizontal_bias="0.983"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024"/>
+        app:layout_constraintVertical_bias="0.843"
+        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="406dp"
-        android:layout_height="362dp"
-        android:text="Gernikako arbola da bedeinkatua Euskaldunen artean guztiz 1-........... Eman ta zabal zazu munduan frutua adoratzen zaitugu arbola santua  Mila urte inguru da esaten dutela Jainkoan jarri zuela Gernikako arbola. Zaude bada zutikan orain da denbora eroritzen bazera arras galdu gera  Ez zera eroriko arbola maitea baldin portatzen bada Bizkaiko Juntia. Laurok hartuko degu zurekin partea pakian bizi dedin euskaldun jendia.  Betiko bizi dedin Jaunari eskatzeko jarri gaitezen danok laister belauniko. Eta bihotzetikan eskatu ezkero arbola biziko da orain eta gero.  Arbola botatzia dutena pentsatu Euskal Herri guztian denak badakigu. Ea bada jendia denbora orain degu erori gabetanik eduki behar degu.  Beti egongo zera udaberrikoa lore aintzinetako mantxa gabekoa. Erruki zaite, bada, bihotz gurekoa denbora galdu gabe emanik frutua.  Arbolak erantzun du kontuz bizitzeko eta bihotzetikan Jaunari eskatzeko, gerrarik nahi ez degu pakea betiko, gure lege zuzenak hemen maitatzeko.  Erregutu diogun Jaungoiko Jaunari pakea emateko orain eta beti. Baita indarra ere zerorren lurrari eta bendizioa Euskal Herriari."
+    <ImageView
+        android:id="@+id/equis8"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/incorrecto"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.352" />
+        app:layout_constraintVertical_bias="0.778"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/equis7"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/incorrecto"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.709"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/tick"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/tick"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.643"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/tick2"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/tick"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.709"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/tick5"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/tick"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.913"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/tick6"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/tick"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.646"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/tick7"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/tick"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.709"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/tick8"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/tick"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.771"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/tick9"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/tick"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.829"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/tick3"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/tick"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.778"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/tick4"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/tick"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.843"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/equis1"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/incorrecto"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.647"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/equis3"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/incorrecto"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.778"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/equis4"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/incorrecto"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.843"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/equis5"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/incorrecto"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.913"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/equis6"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/incorrecto"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.983"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.643"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/equis2"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/incorrecto"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.709"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="258dp"
+        android:layout_height="38dp"
+        android:text="Rellena los huecos de la canción"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="357dp"
+        android:layout_height="53dp"
+        android:text="Empezará a sonar el audio de Gernikako Arbola y tienes que rellenar los huecos que faltan. El audio se reproducirá 3 veces, buena suerte."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.277"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.087" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="381dp"
+        android:layout_height="320dp"
+        android:text="Gernikako arbola da bedeinkatua Euskaldunen artean guztiz 1-........... Eman ta zabal zazu munduan frutua adoratzen zaitugu 2-...... santua  Mila urte inguru da esaten dutela Jainkoan jarri zuela 3-........ arbola. Zaude bada zutikan orain da denbora eroritzen bazera arras 4-..... gera  Ez zera eroriko arbola maitea baldin portatzen bada Bizkaiko Juntia. Laurok hartuko degu 5-....... partea pakian bizi dedin euskaldun jendia.  Betiko bizi dedin Jaunari eskatzeko jarri gaitezen danok laister belauniko. Eta 6-............ eskatu ezkero arbola biziko da orain eta gero.  Arbola botatzia dutena pentsatu Euskal Herri guztian denak badakigu. Ea bada 7-...... denbora orain degu erori gabetanik eduki behar degu.  Beti egongo zera udaberrikoa lore aintzinetako mantxa gabekoa. Erruki zaite, bada, bihotz gurekoa denbora galdu gabe 8-....... frutua.  Arbolak erantzun du kontuz bizitzeko eta bihotzetikan Jaunari eskatzeko, gerrarik nahi ez degu pakea betiko, gure lege 9-....... hemen maitatzeko.  Erregutu diogun Jaungoiko Jaunari pakea emateko orain eta beti. Baita indarra ere zerorren lurrari eta bendizioa Euskal Herriari."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.291" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="1-"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.648" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="157dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="3-"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.786" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="156dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:hint="4-"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.86" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="156dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="5-"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.92" />
+
+    <Button
+        android:id="@+id/buttonComprobar"
+        android:layout_width="411dp"
+        android:layout_height="44dp"
+        android:text="Comprobar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.992" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="159dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:hint="2-"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.715" />
+
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="152dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:hint="6-"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.646" />
+
+    <EditText
+        android:id="@+id/editText8"
+        android:layout_width="152dp"
+        android:layout_height="41dp"
+        android:ems="10"
+        android:hint="8-"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.776" />
+
+    <EditText
+        android:id="@+id/editText9"
+        android:layout_width="146dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="9-"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.792"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.841" />
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="152dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:hint="7-"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.81"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.706" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
