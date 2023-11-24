@@ -66,7 +66,6 @@ public class Ruleta extends AppCompatActivity {
             @Override
             public void run() {
                 ruleta.setRotation(rotacion);
-                System.out.println(rotacion);
 
                 // Controlador de velocidad de la ruleta
                 if (rotacion >= 21) {
