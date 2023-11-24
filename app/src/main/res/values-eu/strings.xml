@@ -16,4 +16,23 @@
     <string name="mensajeError">La respuesta es incorrecta, inténtalo de nuevo</string>
     <string name="mensajeAcierto">¡Muy bien!</string>
     <string name="galdera">Galdera</string>
+
+    <!-- Test -->
+    <string name="test">Test</string>
+
+    <string name="test1">Zein urtetan sortu zen astrako babeslekua?</string>
+    <string name="resp11">1936</string>
+    <string name="resp12">1940</string>
+    <string name="resp13">1932</string>
+    <string name="resp14">1045</string>
+
+    <string name="test2">Nork egin zuen “Guernica” deituriko koadroa?</string>
+    <string name="resp21">Pablo Picasso</string>
+    <string name="resp22">Leonardo da Vinci</string>
+    <string name="resp23">Diego Velazquez</string>
+
+    <string name="test3">Nola deitzen da gabon gauean elizaz eliza abesten doan tradizioa?</string>
+    <string name="resp31">Marijesiak</string>
+    <string name="resp32">Kristau-Abesleak</string>
+    <string name="resp33">Gau Kantak</string>
 </resources>
