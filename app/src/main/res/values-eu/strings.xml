@@ -13,4 +13,7 @@
     <string name="respuesta">440</string>
     <string name="refugio_antiaereo">Refugio Antiaereo</string>
     <string name="validar">Validar</string>
+    <string name="mensajeError">La respuesta es incorrecta, inténtalo de nuevo</string>
+    <string name="mensajeAcierto">¡Muy bien!</string>
+    <string name="galdera">Galdera</string>
 </resources>
