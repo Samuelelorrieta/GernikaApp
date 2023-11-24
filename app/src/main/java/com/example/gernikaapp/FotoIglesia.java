@@ -17,6 +17,7 @@ public class FotoIglesia extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foto_iglesia);
+        Intent irRuleta = new Intent(this, Ruleta.class);
 
         //Llamamos a la imagen
         img_ComingSoon = findViewById(R.id.img_ComingSoon);
@@ -31,7 +32,7 @@ public class FotoIglesia extends AppCompatActivity {
         img_ComingSoon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(irRuleta);
             }
         });
 
