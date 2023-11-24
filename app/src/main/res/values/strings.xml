@@ -16,4 +16,11 @@
     <string name="mensajeError">La respuesta es incorrecta, inténtalo de nuevo</string>
     <string name="mensajeAcierto">¡Muy bien!</string>
     <string name="galdera">Galdera</string>
+    <string name="lbl_Nombre_ruleta">Ruleta</string>
+    <string name="lbl_Descripcion">Gira la Ruleta. La letra que salga tendras que poner 3 nombres de Pueblos/Ciudades. La letra es la:</string>
+    <string name="lbl_Ejemplo">Ejemplo: J</string>
+    <string name="txt_pueblo_ciudad_1"><![CDATA[Pueblo/Ciudad --> 1]]></string>
+    <string name="txt_pueblo_ciudad_2"><![CDATA[Pueblo/Ciudad --> 2]]></string>
+    <string name="txt_pueblo_ciudad_3"><![CDATA[Pueblo/Ciudad --> 2]]></string>
+    <string name="btn_comprobar">Comprobar</string>
 </resources>
