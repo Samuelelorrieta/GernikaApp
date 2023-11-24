@@ -6,6 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".test">
 
+    <ImageView
+        android:id="@+id/tick3"
+        android:layout_width="43dp"
+        android:layout_height="37dp"
+        android:src="@drawable/tick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.899"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.618" />
+
+    <ImageView
+        android:id="@+id/tick2"
+        android:layout_width="43dp"
+        android:layout_height="37dp"
+        android:src="@drawable/tick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.899"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.403" />
+
+    <ImageView
+        android:id="@+id/cross3"
+        android:layout_width="47dp"
+        android:layout_height="31dp"
+        android:src="@drawable/incorrecto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.621" />
+
     <RadioButton
         android:id="@+id/radio11"
         android:layout_width="131dp"
@@ -114,6 +150,8 @@
 
     <TextView
         android:id="@+id/textView7"
+        android:textStyle="italic"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/test"
@@ -173,7 +211,7 @@
         app:layout_constraintVertical_bias="0.764" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/botonTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/validar"
@@ -183,5 +221,54 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.937" />
+
+    <ImageView
+        android:id="@+id/tick1"
+        android:layout_width="43dp"
+        android:layout_height="37dp"
+        android:src="@drawable/tick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.106" />
+
+    <ImageView
+        android:id="@+id/cross1"
+        android:layout_width="47dp"
+        android:layout_height="31dp"
+        android:src="@drawable/incorrecto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.114" />
+
+    <ImageView
+        android:id="@+id/cross2"
+        android:layout_width="47dp"
+        android:layout_height="31dp"
+        android:src="@drawable/incorrecto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.898"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <TextView
+        android:id="@+id/errorTest"
+        android:layout_width="182dp"
+        android:layout_height="20dp"
+        android:text="@string/felicidades"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.314"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.918" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
