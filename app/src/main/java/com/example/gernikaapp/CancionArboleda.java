@@ -3,14 +3,12 @@ package com.example.gernikaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class CancionArboleda extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
@@ -78,7 +76,7 @@ public class CancionArboleda extends AppCompatActivity {
         EditText palabra8 = findViewById(R.id.editText8);
         EditText palabra9 = findViewById(R.id.editText9);
 
-        Intent test = new Intent(this, test.class);
+        Intent test = new Intent(this, Test.class);
         Button boton = findViewById(R.id.buttonComprobar);
         //Activar Sonido
         mediaPlayer=MediaPlayer.create(this, R.raw.gernikakoarbola);

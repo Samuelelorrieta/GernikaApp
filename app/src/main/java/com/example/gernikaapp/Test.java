@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-public class test extends AppCompatActivity {
+public class Test extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class test extends AppCompatActivity {
             if(test1.isChecked()&&test2.isChecked()&&test3.isChecked())
             {
                 error.setVisibility(View.VISIBLE);
-                Intent irBunker = new Intent(test.this, MainActivity.class);
+                Intent irBunker = new Intent(Test.this, MainActivity.class);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {

@@ -6,7 +6,7 @@
     android:background="#79D2E6"
     android:backgroundTint="#79D2E6"
     android:layout_height="match_parent"
-    tools:context=".test">
+    tools:context=".Test">
 
     <ImageView
         android:id="@+id/tick3"
@@ -209,6 +209,7 @@
         android:id="@+id/botonTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/verde_boton"
         android:text="@string/validar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

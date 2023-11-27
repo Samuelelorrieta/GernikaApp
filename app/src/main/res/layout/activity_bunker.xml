@@ -101,9 +101,11 @@
 
     <EditText
         android:id="@+id/respuesta"
-        android:layout_width="82dp"
-        android:layout_height="51dp"
+        android:layout_width="127dp"
+        android:layout_height="43dp"
         android:ems="10"
+        android:gravity="center"
+        android:hint="Ejemplo: 33"
         android:inputType="number"
         android:shadowColor="@color/black"
         android:textColor="@color/black"
@@ -121,6 +123,7 @@
         android:id="@+id/boton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/verde_boton"
         android:text="@string/validar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
