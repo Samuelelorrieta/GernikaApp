@@ -78,6 +78,7 @@ public class CancionArboleda extends AppCompatActivity {
 
         Intent test = new Intent(this, Test.class);
         Button boton = findViewById(R.id.buttonComprobar);
+
         //Activar Sonido
         mediaPlayer=MediaPlayer.create(this, R.raw.gernikakoarbola);
 

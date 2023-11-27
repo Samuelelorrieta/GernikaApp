@@ -30,6 +30,8 @@
         android:layout_marginBottom="36dp"
         android:backgroundTint="#05884A"
         android:text="@string/btn_continuar"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -45,6 +47,7 @@
         android:fontFamily="@font/uncial_antiqua"
         android:gravity="center"
         android:text="@string/texto_bienvenida"
+        android:textColor="@color/black"
         android:textColorHighlight="@color/black"
         android:textColorHint="@color/black"
         android:textColorLink="@color/black"

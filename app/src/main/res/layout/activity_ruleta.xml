@@ -43,6 +43,9 @@
             android:layout_height="89dp"
             android:gravity="center"
             android:text="@string/lbl_Nombre_ruleta"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
+            android:textColorLink="@color/black"
             android:textSize="60sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +59,8 @@
             android:layout_height="93dp"
             android:gravity="center"
             android:text="@string/lbl_Descripcion"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,6 +73,8 @@
             android:layout_height="141dp"
             android:gravity="center"
             android:text="@string/lbl_Ejemplo"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
             android:textSize="34sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -79,31 +86,36 @@
             android:id="@+id/txt_Pueblo1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/txt_pueblo_ciudad_1"
             android:enabled="false"
-            app:layout_constraintTop_toBottomOf="@+id/lbl_Letra_Seleccionada"
+            android:hint="@string/txt_pueblo_ciudad_1"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/lbl_Letra_Seleccionada" />
 
         <EditText
             android:id="@+id/txt_Pueblo2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/txt_pueblo_ciudad_2"
             android:enabled="false"
-            app:layout_constraintTop_toBottomOf="@+id/txt_Pueblo1"
+            android:hint="@string/txt_pueblo_ciudad_2"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/txt_Pueblo1" />
 
         <EditText
             android:id="@+id/txt_Pueblo3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/txt_pueblo_ciudad_3"
             android:enabled="false"
-            app:layout_constraintTop_toBottomOf="@+id/txt_Pueblo2"
+            android:hint="@string/txt_pueblo_ciudad_3"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/txt_Pueblo2" />
 
         <Button
             android:id="@+id/btn_Comprobar"
@@ -111,6 +123,8 @@
             android:layout_height="80dp"
             android:backgroundTint="#05884A"
             android:text="@string/btn_comprobar"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

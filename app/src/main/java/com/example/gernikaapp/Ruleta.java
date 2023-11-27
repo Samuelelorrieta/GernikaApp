@@ -3,6 +3,7 @@ package com.example.gernikaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -29,6 +30,7 @@ public class Ruleta extends AppCompatActivity {
     String[] letrasRuleta = {"R", "S", "T", "U", "X", "Z", "A", "B", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P"};
     int posicionRadianes = 0;
     boolean gira = false;
+    private MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,9 @@ public class Ruleta extends AppCompatActivity {
         txt_Pueblo3 = findViewById(R.id.txt_Pueblo3);
         btn_Comprobar = findViewById(R.id.btn_Comprobar);
 
+        //Activar Sonido
+        mediaPlayer=MediaPlayer.create(this, R.raw.ruletasound);
+
         //Boton invisible para que no se vea
         btn_Comprobar.setVisibility(View.INVISIBLE);
 
@@ -55,6 +60,7 @@ public class Ruleta extends AppCompatActivity {
             if (!gira) {
                 posicionRadianes = new Random().nextInt(21);
                 gira = true;
+                mediaPlayer.start();
                 startSpin(irCancionArboleda);
             }
         });
@@ -86,6 +92,7 @@ public class Ruleta extends AppCompatActivity {
                 if (rotacion >= posicionParada[posicionRadianes]) {
                     //Se para la ruleta y se activan los EditText y el boton
                     lbl_Letra_Seleccionada.setText(letrasRuleta[posicionRadianes]);
+                    mediaPlayer.stop();
                     txt_Pueblo1.setEnabled(true);
                     txt_Pueblo2.setEnabled(true);
                     txt_Pueblo3.setEnabled(true);
