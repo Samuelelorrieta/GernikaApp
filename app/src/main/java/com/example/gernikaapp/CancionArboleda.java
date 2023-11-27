@@ -2,6 +2,7 @@ package com.example.gernikaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -77,7 +78,7 @@ public class CancionArboleda extends AppCompatActivity {
         EditText palabra8 = findViewById(R.id.editText8);
         EditText palabra9 = findViewById(R.id.editText9);
 
-
+        Intent test = new Intent(this, test.class);
         Button boton = findViewById(R.id.buttonComprobar);
         //Activar Sonido
         mediaPlayer=MediaPlayer.create(this, R.raw.gernikakoarbola);
@@ -166,6 +167,18 @@ public class CancionArboleda extends AppCompatActivity {
                     palabra9.setText("");
                     equis9.setVisibility(View.VISIBLE);
                 }
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        startActivity(test);
+                        // Después de la pausa, puedes realizar más operaciones en este hilo
+                    }
+                }).start();
             }
         });
     }
