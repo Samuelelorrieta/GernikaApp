@@ -27,24 +27,24 @@ public class test extends AppCompatActivity {
 
         ImageView tick1 =findViewById(R.id.tick1);
         tick1.setVisibility(View.INVISIBLE);
-        ImageView tick2 =findViewById(R.id.tick1);
+        ImageView tick2 =findViewById(R.id.tick2);
         tick2.setVisibility(View.INVISIBLE);
-        ImageView tick3 =findViewById(R.id.tick1);
+        ImageView tick3 =findViewById(R.id.tick3);
         tick3.setVisibility(View.INVISIBLE);
-        ImageView cross1 =findViewById(R.id.tick1);
+        ImageView cross1 =findViewById(R.id.cross1);
         cross1.setVisibility(View.INVISIBLE);
-        ImageView cross2 =findViewById(R.id.tick1);
+        ImageView cross2 =findViewById(R.id.cross2);
         cross2.setVisibility(View.INVISIBLE);
-        ImageView cross3 =findViewById(R.id.tick1);
+        ImageView cross3 =findViewById(R.id.cross3);
         cross3.setVisibility(View.INVISIBLE);
 
-        Intent main = new Intent(this, MainActivity.class);
+
 
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-            if(test1.isActivated()) {
+            if(test1.isChecked()) {
                 tick1.setVisibility(View.VISIBLE);
                 cross1.setVisibility(View.INVISIBLE);
             }
@@ -53,7 +53,7 @@ public class test extends AppCompatActivity {
                 tick1.setVisibility(View.INVISIBLE);
             }
 
-            if(test2.isActivated()) {
+            if(test2.isChecked()) {
                 tick2.setVisibility(View.VISIBLE);
                 cross2.setVisibility(View.INVISIBLE);
             }
@@ -62,7 +62,7 @@ public class test extends AppCompatActivity {
                 tick2.setVisibility(View.INVISIBLE);
             }
 
-            if(test3.isActivated()) {
+            if(test3.isChecked()) {
                 tick3.setVisibility(View.VISIBLE);
                 cross3.setVisibility(View.INVISIBLE);
             }
@@ -70,19 +70,20 @@ public class test extends AppCompatActivity {
                 cross3.setVisibility(View.VISIBLE);
                 tick3.setVisibility(View.INVISIBLE);
             }
-            if(test1.isActivated()&&test2.isActivated()&&test3.isActivated())
+            if(test1.isChecked()&&test2.isChecked()&&test3.isChecked())
             {
+                error.setVisibility(View.VISIBLE);
+                Intent irBunker = new Intent(test.this, MainActivity.class);
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         try {
-                            error.setVisibility(View.VISIBLE);
                             // Pausa el hilo durante 3 segundos (3000 milisegundos)
                             Thread.sleep(3000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        startActivity(main);
+                        startActivity(irBunker);
                         // Después de la pausa, puedes realizar más operaciones en este hilo
                     }
                 }).start();
