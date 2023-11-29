@@ -1,20 +1,20 @@
 <resources>
     <string name="app_name">GernikaApp</string>
-    <string name="btn_continuar">Continuar</string>
-    <string name="texto_bienvenida">Descubre los secretos de Gernika</string>
+    <string name="btn_continuar">Jarraitu</string>
+    <string name="texto_bienvenida">Ezagutu Gernikako sekretuak</string>
 
     <!--2 Gunea -->
     <string name="textoProfe1">Espainian altxamendu militarraren eman zen eta otxandion eta bilbon gertaturiko erasoen ondorioz gernikan babesleku militar hau eraiki zen.</string>
     <string name="textoProfe2">Talleres de Gernika lantegiak (TdG) bi babesleku eraiki zituen 1936ko irailean, bertako langileei aterpea emateko:</string>
-    <string name="textoProfe3">-Lehena "Astra" ren babesleku gisa ezagutzen da gaur egun. Astra 400 "Purua" pistola enblematikotik dator izen hori.</string>
-    <string name="textoProfe4">-Gernikako Tailerren bigarren aterpea 22 metroko luzera eta 5 metroko zabalera duen egitura da, eta metro bateko lodiera duten horma sendoek osatzen dute.</string>
+    <string name="textoProfe3">- Lehena Astra ren babesleku gisa ezagutzen da gaur egun. Astra 400 Purua pistola enblematikotik dator izen hori.</string>
+    <string name="textoProfe4">- Gernikako Tailerren bigarren aterpea 22 metroko luzera eta 5 metroko zabalera duen egitura da, eta metro bateko lodiera duten horma sendoek osatzen dute.</string>
     <string name="textoProfe5">Hormigoizko bi eraikin horiek sabai faltsu baten azpian "disimulatuta" zeuden, bonbardaketan parte hartu zuten hegazkinek identifikatu ez zitzaten.</string>
     <string name="pregunta">Bunker honen luzera 22 metrokoa da eta bere zabalera 5 metrokoa da. Zenbat pertsona sartuko lirateke bunkerrean, metro karratu bakoitzean 4 pertsona sartzen badira?</string>
     <string name="respuesta">440</string>
-    <string name="refugio_antiaereo">Refugio Antiaereo</string>
-    <string name="validar">Validar</string>
-    <string name="mensajeError">La respuesta es incorrecta, inténtalo de nuevo</string>
-    <string name="mensajeAcierto">¡Muy bien!</string>
+    <string name="refugio_antiaereo">Antiaereoa aterpea</string>
+    <string name="validar">Konprobatu</string>
+    <string name="mensajeError">"Erantzuna ez da zuzena, saiatu berriro "</string>
+    <string name="mensajeAcierto">Oso ondo!</string>
     <string name="galdera">Galdera</string>
 
     <!-- Test -->
@@ -26,7 +26,7 @@
     <string name="resp13">1932</string>
     <string name="resp14">1045</string>
 
-    <string name="test2">Nork egin zuen “Guernica” deituriko koadroa?</string>
+    <string name="test2">Nork egin zuen Gernikako koadroa?</string>
     <string name="resp21">Pablo Picasso</string>
     <string name="resp22">Leonardo da Vinci</string>
     <string name="resp23">Diego Velazquez</string>
@@ -35,5 +35,12 @@
     <string name="resp31">Marijesiak</string>
     <string name="resp32">Kristau-Abesleak</string>
     <string name="resp33">Gau Kantak</string>
-    <string name="felicidades">Felicidades</string>
+    <string name="felicidades">Zorionak!</string>
+    <string name="lbl_Nombre_ruleta">ERR</string>
+    <string name="lbl_Descripcion">"Klikatu erruletan eta itxaron letra bat atera arte. Ateratzen den letrarekin 3 herri/hiri idatzi beharko dituzu. Zure letra da: "</string>
+    <string name="lbl_Ejemplo">Adibidez: J</string>
+    <string name="txt_pueblo_ciudad_1"><![CDATA[Herria/Hiria --> 1]]></string>
+    <string name="txt_pueblo_ciudad_2"><![CDATA[Herria/Hiria --> 2]]></string>
+    <string name="txt_pueblo_ciudad_3"><![CDATA[Herria/Hiria --> 3]]></string>
+    <string name="btn_comprobar">Konprobatu</string>
 </resources>

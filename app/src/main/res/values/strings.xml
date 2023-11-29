@@ -4,44 +4,45 @@
     <string name="texto_bienvenida">Descubre los secretos de Gernika</string>
 
     <!--2 Gunea -->
-    <string name="textoProfe1">Espainian altxamendu militarraren eman zen eta otxandion eta bilbon gertaturiko erasoen ondorioz gernikan babesleku militar hau eraiki zen.</string>
+    <string name="textoProfe1">En España se dio la alzamiento militar y tras los ataques de Otxandio y Bilbao se construyó este refugio militar en Gernika.</string>
     <string name="textoProfe2">Talleres de Gernika lantegiak (TdG) bi babesleku eraiki zituen 1936ko irailean, bertako langileei aterpea emateko:</string>
-    <string name="textoProfe3">-Lehena "Astra" ren babesleku gisa ezagutzen da gaur egun. Astra 400 "Purua" pistola enblematikotik dator izen hori.</string>
-    <string name="textoProfe4">-Gernikako Tailerren bigarren aterpea 22 metroko luzera eta 5 metroko zabalera duen egitura da, eta metro bateko lodiera duten horma sendoek osatzen dute.</string>
-    <string name="textoProfe5">Hormigoizko bi eraikin horiek sabai faltsu baten azpian "disimulatuta" zeuden, bonbardaketan parte hartu zuten hegazkinek identifikatu ez zitzaten.</string>
-    <string name="pregunta">Bunker honen luzera 22 metrokoa da eta bere zabalera 5 metrokoa da. Zenbat pertsona sartuko lirateke bunkerrean, metro karratu bakoitzean 4 pertsona sartzen badira?</string>
+    <string name="textoProfe3">"- El primero es conocido hoy como refugio del Astra. Ese nombre proviene de la emblemática pistola Astra 400 Purua. "</string>
+    <string name="textoProfe4">"- El segundo refugio de los Talleres de Gernika es una estructura de 22 metros de largo por 5 de ancho, formada por sólidos muros de un metro de espesor. "</string>
+    <string name="textoProfe5">"Estos dos edificios de hormigón estaban disimulados bajo un falso techo para evitar ser identificados por los aviones que participaron en el bombardeo. "</string>
+    <string name="pregunta">"La longitud de este búnker es de 22 metros y su anchura es de 5 metros. ¿Cuántas personas entrarían en el búnker si por metro cuadrado entran 4 personas? "</string>
     <string name="respuesta">440</string>
-    <string name="refugio_antiaereo">Refugio Antiaereoa</string>
+    <string name="refugio_antiaereo">Refugio Antiaereo</string>
     <string name="validar">Validar</string>
     <string name="mensajeError">La respuesta es incorrecta, inténtalo de nuevo</string>
     <string name="mensajeAcierto">¡Muy bien!</string>
-    <string name="galdera">Galdera</string>
 
     <!-- Test -->
     <string name="test">Test</string>
 
-    <string name="test1">Zein urtetan sortu zen astrako babeslekua?</string>
+    <string name="test1">"¿En qué año se creó el refugio de Astra? "</string>
     <string name="resp11">1936</string>
     <string name="resp12">1940</string>
     <string name="resp13">1932</string>
     <string name="resp14">1045</string>
 
-    <string name="test2">Nork egin zuen “Guernica” deituriko koadroa?</string>
+    <string name="test2">¿Quién hizo el cuadro de Gernika?</string>
     <string name="resp21">Pablo Picasso</string>
     <string name="resp22">Leonardo da Vinci</string>
     <string name="resp23">Diego Velazquez</string>
 
-    <string name="test3">Nola deitzen da gabon gauean elizaz eliza abesten doan tradizioa?</string>
-    <string name="resp31">Marijesiak</string>
-    <string name="resp32">Kristau-Abesleak</string>
-    <string name="resp33">Gau Kantak</string>
-    <string name="felicidades">Felicidades</string>
+    <string name="test3">"¿Cómo se llama la tradición que va cantando de iglesia en iglesia en Nochebuena? "</string>
+    <string name="resp31">"Villancico "</string>
+    <string name="felicidades">¡Felicidades!</string>
 
     <string name="lbl_Nombre_ruleta">RULETA</string>
     <string name="lbl_Descripcion">"Clica sobre la ruleta y espera a que salga una letra. Con la letra que salga tendrás que escribir 3 pueblos/ciudades. Tu letra es: "</string>
     <string name="lbl_Ejemplo">Ejemplo: J</string>
-    <string name="txt_pueblo_ciudad_1"><![CDATA[Pueblo/Ciudad --> 1]]></string>
     <string name="txt_pueblo_ciudad_2"><![CDATA[Pueblo/Ciudad --> 2]]></string>
     <string name="txt_pueblo_ciudad_3"><![CDATA[Pueblo/Ciudad --> 3]]></string>
     <string name="btn_comprobar">Comprobar</string>
+    <string name="galdera">Pregunta</string>
+    <string name="resp32">Coros-Cristianos</string>
+    <string name="resp33">Nanas</string>
+    <string name="lbl_Descripcion">"Clica sobre la ruleta y espera a que salga una letra. Con la letra que salga tendrás que escribir 3 pueblos/ciudades. Tu letra es: "</string>
+    <string name="txt_pueblo_ciudad_1"><![CDATA[Pueblo/Ciudad --> 1]]></string>
 </resources>
