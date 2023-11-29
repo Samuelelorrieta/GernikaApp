@@ -43,4 +43,6 @@
     <string name="txt_pueblo_ciudad_2"><![CDATA[Herria/Hiria --> 2]]></string>
     <string name="txt_pueblo_ciudad_3"><![CDATA[Herria/Hiria --> 3]]></string>
     <string name="btn_comprobar">Konprobatu</string>
+    <string name="lbl_descripcion_cancion">Bete abestiaren hutsuneak</string>
+    <string name="lbl_descripcion_cancion2">Gernikako Arbolaren audioa entzuten hasiko da eta falta diren hutsuneak bete behar dituzu. Audioa 3 aldiz erreproduzituko da, zorte on.</string>
 </resources>

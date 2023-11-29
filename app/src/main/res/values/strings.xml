@@ -35,7 +35,6 @@
     <string name="felicidades">¡Felicidades!</string>
 
     <string name="lbl_Nombre_ruleta">RULETA</string>
-    <string name="lbl_Descripcion">"Clica sobre la ruleta y espera a que salga una letra. Con la letra que salga tendrás que escribir 3 pueblos/ciudades. Tu letra es: "</string>
     <string name="lbl_Ejemplo">Ejemplo: J</string>
     <string name="txt_pueblo_ciudad_2"><![CDATA[Pueblo/Ciudad --> 2]]></string>
     <string name="txt_pueblo_ciudad_3"><![CDATA[Pueblo/Ciudad --> 3]]></string>
@@ -45,4 +44,6 @@
     <string name="resp33">Nanas</string>
     <string name="lbl_Descripcion">"Clica sobre la ruleta y espera a que salga una letra. Con la letra que salga tendrás que escribir 3 pueblos/ciudades. Tu letra es: "</string>
     <string name="txt_pueblo_ciudad_1"><![CDATA[Pueblo/Ciudad --> 1]]></string>
+    <string name="lbl_descripcion_cancion">Rellena los huecos de la canción</string>
+    <string name="lbl_descripcion_cancion2">Empezará a sonar el audio de Gernikako Arbola y tienes que rellenar los huecos que faltan. El audio se reproducirá 3 veces, buena suerte.</string>
 </resources>

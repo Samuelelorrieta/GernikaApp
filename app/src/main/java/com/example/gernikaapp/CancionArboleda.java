@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -166,18 +167,21 @@ public class CancionArboleda extends AppCompatActivity {
                     palabra9.setText("");
                     equis9.setVisibility(View.VISIBLE);
                 }
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(3000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                if(tick.getVisibility()==View.VISIBLE&&tick2.getVisibility()==View.VISIBLE&&tick3.getVisibility()==View.VISIBLE&&tick4.getVisibility()==View.VISIBLE&&tick5.getVisibility()==View.VISIBLE&&tick6.getVisibility()==View.VISIBLE&&tick7.getVisibility()==View.VISIBLE&&tick8.getVisibility()==View.VISIBLE&&tick9.getVisibility()==View.VISIBLE) {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            startActivity(test);
+                            mediaPlayer.stop();
+                            // Después de la pausa, puedes realizar más operaciones en este hilo
                         }
-                        startActivity(test);
-                        // Después de la pausa, puedes realizar más operaciones en este hilo
-                    }
-                }).start();
+                    }).start();
+                }
             }
         });
     }
