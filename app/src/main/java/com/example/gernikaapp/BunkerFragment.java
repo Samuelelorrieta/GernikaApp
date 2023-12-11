@@ -1,43 +1,44 @@
 package com.example.gernikaapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
+import androidx.fragment.app.Fragment;
 
-public class Bunker extends AppCompatActivity {
+public class BunkerFragment extends Fragment {
+
+    public BunkerFragment() {
+        // Constructor vacío requerido por Android
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bunker);
-        String respuestaCorrecta= getString(R.string.respuesta);
-        TextView error = findViewById(R.id.error);
-        String mensajeError= getString(R.string.mensajeError);
-        String mensajeAcierto= getString(R.string.mensajeAcierto);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_bunker, container, false);
 
-        EditText respuesta = findViewById(R.id.respuesta);
-        Button boton = findViewById(R.id.boton);
+        String respuestaCorrecta = getString(R.string.respuesta);
+        TextView error = view.findViewById(R.id.error);
+        String mensajeError = getString(R.string.mensajeError);
+        String mensajeAcierto = getString(R.string.mensajeAcierto);
+
+        EditText respuesta = view.findViewById(R.id.respuesta);
+        Button boton = view.findViewById(R.id.boton);
 
         boton.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
-
-                if(respuesta.getText().toString().equals(respuestaCorrecta))
-                {
+                if (respuesta.getText().toString().equals(respuestaCorrecta)) {
                     error.setTextColor(R.color.black);
                     error.setText(mensajeAcierto);
-                    Intent irBunker = new Intent(Bunker.this, FotoIglesia.class);
+                    Intent irBunker = new Intent(getActivity(), FotoIglesia.class);
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -51,21 +52,13 @@ public class Bunker extends AppCompatActivity {
                             // Después de la pausa, puedes realizar más operaciones en este hilo
                         }
                     }).start();
-                }
-                else
-                {
+                } else {
                     error.setText(mensajeError);
                     respuesta.setText("");
                 }
             }
         });
-    }
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-            // Bloquear el botón de retroceso
-            return true;
-        }
-        return super.dispatchKeyEvent(event);
+
+        return view;
     }
 }
