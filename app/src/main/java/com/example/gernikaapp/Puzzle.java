@@ -31,8 +31,8 @@ public class Puzzle extends AppCompatActivity {
         img_ComingSoon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent irBunker = new Intent(Puzzle.this, Bunker.class);
-                startActivity(irBunker);
+                //Intent irBunker = new Intent(Puzzle.this, Bunker.class);
+                //startActivity(irBunker);
             }
         });
 

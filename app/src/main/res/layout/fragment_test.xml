@@ -6,7 +6,7 @@
     android:background="#79D2E6"
     android:backgroundTint="#79D2E6"
     android:layout_height="match_parent"
-    tools:context=".Test">
+    tools:context=".TestFragment">
 
     <ImageView
         android:id="@+id/tick3"

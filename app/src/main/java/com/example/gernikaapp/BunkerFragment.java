@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 public class BunkerFragment extends Fragment {
 
@@ -38,7 +39,6 @@ public class BunkerFragment extends Fragment {
                 if (respuesta.getText().toString().equals(respuestaCorrecta)) {
                     error.setTextColor(R.color.black);
                     error.setText(mensajeAcierto);
-                    Intent irBunker = new Intent(getActivity(), FotoIglesia.class);
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -48,7 +48,10 @@ public class BunkerFragment extends Fragment {
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            startActivity(irBunker);
+                            RuletaFragment ruletaFragment = new RuletaFragment();
+                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                            transaction.replace(R.id.contenedorFragment, ruletaFragment); // Reemplaza el fragmento actual con FragmentB
+                            transaction.commit();
                             // Después de la pausa, puedes realizar más operaciones en este hilo
                         }
                     }).start();

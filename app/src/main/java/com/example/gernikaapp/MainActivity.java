@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         animator.start();
 
         Button botonContinuar=findViewById(R.id.button);
-        Intent irPuzzle = new Intent(this, Puzzle.class);
+        Intent irPuzzle = new Intent(this, Actividades.class);
         botonContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
