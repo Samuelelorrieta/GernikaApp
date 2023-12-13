@@ -47,6 +47,7 @@ public class RuletaFragment extends Fragment {
 
         ruleta = view.findViewById(R.id.wheel);
         flecha = view.findViewById(R.id.arrow);
+
         lbl_Letra_Seleccionada = view.findViewById(R.id.lbl_Letra_Seleccionada);
         txt_Pueblo1 = view.findViewById(R.id.txt_Pueblo1);
         txt_Pueblo2 = view.findViewById(R.id.txt_Pueblo2);
@@ -56,6 +57,9 @@ public class RuletaFragment extends Fragment {
         mediaPlayer = MediaPlayer.create(requireContext(), R.raw.ruletasound);
 
         btn_Comprobar.setVisibility(View.INVISIBLE);
+
+        //Invisible los Tiks
+
 
         flecha.setOnClickListener(v -> {
             if (!gira) {
@@ -70,10 +74,15 @@ public class RuletaFragment extends Fragment {
             if (txt_Pueblo1.getText().toString().isEmpty() || txt_Pueblo2.getText().toString().isEmpty() || txt_Pueblo3.getText().toString().isEmpty()) {
                 Toast.makeText(requireContext(), "Rellena todos los campos", Toast.LENGTH_SHORT).show();
             } else {
-                CancionArboledaFragment cancionArboledaFragment = new CancionArboledaFragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.contenedorFragment, cancionArboledaFragment); // Reemplaza el fragmento actual con FragmentB
-                transaction.commit();
+
+                if (String.valueOf(txt_Pueblo1.getText().toString().charAt(0)) != (letrasRuleta[posicionRadianes]) || String.valueOf(txt_Pueblo2.getText().toString().charAt(0)) != (letrasRuleta[posicionRadianes]) || String.valueOf(txt_Pueblo3.getText().toString().charAt(0)) != (letrasRuleta[posicionRadianes])) {
+                    Toast.makeText(requireContext(), "Algún Pueblo/Ciudad no empieza por: " + letrasRuleta[posicionRadianes], Toast.LENGTH_SHORT).show();
+                } else {
+                    CancionArboledaFragment cancionArboledaFragment = new CancionArboledaFragment();
+                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                    transaction.replace(R.id.contenedorFragment, cancionArboledaFragment);
+                    transaction.commit();
+                }
             }
         });
     }
