@@ -45,4 +45,5 @@
     <string name="btn_comprobar">Konprobatu</string>
     <string name="lbl_descripcion_cancion">Bete abestiaren hutsuneak</string>
     <string name="lbl_descripcion_cancion2">Gernikako Arbolaren audioa entzuten hasiko da eta falta diren hutsuneak bete behar dituzu. Audioa 3 aldiz erreproduzituko da, zorte on.</string>
+    <string name="titulo_puzzle">Resuelve el Puzzle</string>
 </resources>
