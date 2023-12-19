@@ -63,7 +63,4 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
 
-    //Map
-    implementation("org.osmdroid:osmdroid-android:6.1.17")
-
 }

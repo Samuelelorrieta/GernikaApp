@@ -1,8 +1,13 @@
-package com.example.gernikaapp;
+package com.example.gernikaapp.BD;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+
+
+import com.example.gernikaapp.BD.Respuesta;
+import com.example.gernikaapp.BD.Usuario;
+
 @Dao
 public interface DaoUsuario {
     @Query("SELECT * FROM Pregunta WHERE id= :idEnviar")

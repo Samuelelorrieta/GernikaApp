@@ -1,4 +1,4 @@
-package com.example.gernikaapp;
+package com.example.gernikaapp.BD;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

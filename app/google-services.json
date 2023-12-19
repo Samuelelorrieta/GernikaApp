@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "709033878630",
+    "project_id": "gernikaapp",
+    "storage_bucket": "gernikaapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709033878630:android:d180a9871c0cbc968679a7",
+        "android_client_info": {
+          "package_name": "com.example.gernikaapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrNrp2ypMX2JsuysNCf4dyEeg0ubkNYjY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
