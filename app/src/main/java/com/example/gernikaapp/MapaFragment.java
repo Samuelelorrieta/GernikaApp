@@ -11,11 +11,13 @@ import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import org.osmdroid.api.IMapController;
@@ -27,17 +29,35 @@ import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.IMyLocationProvider;
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay;
 
-public class MapaFragment extends androidx.fragment.app.Fragment {
+public class MapaFragment extends Fragment {
 
     private MapView map = null;
     private IMapController mapController;
     private MyLocationNewOverlay myLocationOverlay;
-    private final GeoPoint geoPoint = new GeoPoint(43.315025342001555, -2.6785887715758503); // Coordenadas del marcador
+    private double lat = 43.28397879770591;
+    private double lon = -2.9645066850317825;
+    private String ubicacion = "Museo de la Paz";
+    private int queFragmentVoy = 1;
+
+    private GeoPoint geoPoint = new GeoPoint(lat, lon); // Coordenadas del marcador
     private int permiso = 0;
+    private boolean error = true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mapa, container, false);
+
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            lat = bundle.getDouble("lat", 0.0);
+            lon = bundle.getDouble("lon", 0.0);
+            ubicacion = bundle.getString("ubicacion", "");
+            queFragmentVoy = bundle.getInt("queFragmentVoy",0);
+
+            geoPoint.setAltitude(lat);
+            geoPoint.setLongitude(lon);
+
+        }
 
         // Configuración de osmdroid
         Context ctx = requireActivity().getApplicationContext();
@@ -80,7 +100,7 @@ public class MapaFragment extends androidx.fragment.app.Fragment {
                     double distance = myLocationOverlay.getMyLocation().distanceToAsDouble(geoPoint);
 
                     // Si estás lo suficientemente cerca del marcador, muestra un mensaje
-                    if (distance < 20) { // Distancia a la que se activa el checpoint
+                    if (distance < 50) { // Distancia a la que se activa el checpoint
                         showMessage("Acaba de llegar a su destino ;)");
                         irBunkerFragment();
                     }
@@ -95,7 +115,7 @@ public class MapaFragment extends androidx.fragment.app.Fragment {
         map.setUseDataConnection(true);
 
         // Llamar a la función para agregar el marcador en las coordenadas especificadas
-        addMarker(geoPoint.getLatitude(), geoPoint.getLongitude(), "Museo de la Paz");
+        addMarker(geoPoint.getLatitude(), geoPoint.getLongitude(), ubicacion);
     }
 
     private void addMarker(double latitude, double longitude, String title) {
@@ -133,10 +153,34 @@ public class MapaFragment extends androidx.fragment.app.Fragment {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                BunkerFragment bunkerFragment = new BunkerFragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.contenedorFragment, bunkerFragment); // Reemplaza el fragmento actual con FragmentB
-                transaction.commit();
+                while(error){
+                    try{
+
+                        if(queFragmentVoy == 0){
+                            //Fragment Puzzle
+                        }else if(queFragmentVoy == 1){
+                            BunkerFragment bunkerFragment = new BunkerFragment();
+                            FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+                            transaction.replace(R.id.contenedorFragment, bunkerFragment);
+                            error = false;
+                            transaction.commit();
+                        }else if(queFragmentVoy == 2){
+                            FotoIglesiaFragment fotoIglesiaFragment = new FotoIglesiaFragment();
+                            FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+                            transaction.replace(R.id.contenedorFragment, fotoIglesiaFragment);
+                            error = false;
+                            transaction.commit();
+                        } else if(queFragmentVoy == 3){
+
+                        }
+
+
+
+
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
                 // Después de la pausa, puedes realizar más operaciones en este hilo
             }
         }).start();

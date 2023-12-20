@@ -20,7 +20,7 @@ public class Actividades extends AppCompatActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         // Reemplaza el contenido del contenedor con el Fragment
-        transaction.replace(R.id.contenedorFragment, new FotoIglesiaFragment());
+        transaction.replace(R.id.contenedorFragment, new MapaFragment());
 
         // Confirma la transacción
         transaction.commit();

@@ -16,6 +16,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class BunkerFragment extends Fragment {
 
+    private final double lat = 43.30888911048448;
+    private final double lon = -2.6833587603397713;
+    private final String ubicacion = "Iglesia San Francisco";
+    private final int queFragmentVoy = 2;
+
     public BunkerFragment() {
         // Constructor vacío requerido por Android
     }
@@ -42,16 +47,27 @@ public class BunkerFragment extends Fragment {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
+
+                            Bundle bundle = new Bundle();
+                            bundle.putDouble("lat", lat);
+                            bundle.putDouble("lon", lon);
+                            bundle.putString("ubicacion", ubicacion);
+                            bundle.putInt("queFragmentVoy", queFragmentVoy);
+
                             try {
                                 // Pausa el hilo durante 3 segundos (3000 milisegundos)
                                 Thread.sleep(3000);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            RuletaFragment ruletaFragment = new RuletaFragment();
-                            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                            transaction.replace(R.id.contenedorFragment, ruletaFragment); // Reemplaza el fragmento actual con FragmentB
-                            transaction.commit();
+
+                            MapaFragment mapaFragment = new MapaFragment();
+                            mapaFragment.setArguments(bundle);
+
+                            getActivity().getSupportFragmentManager().beginTransaction()
+                                    .replace(R.id.contenedorFragment, mapaFragment)
+                                    .addToBackStack(null)
+                                    .commit();
                             // Después de la pausa, puedes realizar más operaciones en este hilo
                         }
                     }).start();
