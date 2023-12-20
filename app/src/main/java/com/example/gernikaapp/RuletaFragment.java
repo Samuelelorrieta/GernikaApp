@@ -32,6 +32,12 @@ public class RuletaFragment extends Fragment {
     boolean gira = false;
     private MediaPlayer mediaPlayer;
 
+    //Informacion para llegar a la siguiente parte de la gincana
+    private final double lat = 43.31301718188222;
+    private final double lon = -2.679944871371978;
+    private final String ubicacion = "Arbol de Gernika";
+    private final int queFragmentVoy = 4;
+
     public RuletaFragment() {
         // Required empty public constructor
     }
@@ -78,6 +84,14 @@ public class RuletaFragment extends Fragment {
                 if (String.valueOf(txt_Pueblo1.getText().toString().charAt(0)) != (letrasRuleta[posicionRadianes]) || String.valueOf(txt_Pueblo2.getText().toString().charAt(0)) != (letrasRuleta[posicionRadianes]) || String.valueOf(txt_Pueblo3.getText().toString().charAt(0)) != (letrasRuleta[posicionRadianes])) {
                     Toast.makeText(requireContext(), "Algún Pueblo/Ciudad no empieza por: " + letrasRuleta[posicionRadianes], Toast.LENGTH_SHORT).show();
                 } else {
+
+                    //Guardar toda la información para el Marker del mapa
+                    Bundle bundle = new Bundle();
+                    bundle.putDouble("lat", lat);
+                    bundle.putDouble("lon", lon);
+                    bundle.putString("ubicacion", ubicacion);
+                    bundle.putInt("queFragmentVoy", queFragmentVoy);
+
                     CancionArboledaFragment cancionArboledaFragment = new CancionArboledaFragment();
                     FragmentTransaction transaction = getFragmentManager().beginTransaction();
                     transaction.replace(R.id.contenedorFragment, cancionArboledaFragment);
