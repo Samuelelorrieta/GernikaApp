@@ -22,10 +22,8 @@ public interface DaoUsuario {
     @Insert void insertarUsuario(Usuario usuario);
 
     @Query("UPDATE Usuario set contrasenya= :nueva_contrasenya")
-
     void actualizarContra(String nueva_contrasenya);
 
     @Query("DELETE FROM Usuario WHERE id= :idUsuario")
-    void actualizarContra(int idUsuario);
-
+    void borrarUsuario(int idUsuario);
 }

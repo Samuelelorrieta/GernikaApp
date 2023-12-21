@@ -7,7 +7,26 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:709033878630:android:d180a9871c0cbc968679a7",
+        "mobilesdk_app_id": "1:709033878630:android:4b5a0fa2ad99ffc38679a7",
+        "android_client_info": {
+          "package_name": "com.example.firebaseprueba"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrNrp2ypMX2JsuysNCf4dyEeg0ubkNYjY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709033878630:android:146d27f32fece9ae8679a7",
         "android_client_info": {
           "package_name": "com.example.gernikaapp"
         }
