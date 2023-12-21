@@ -70,7 +70,7 @@ public class inicioSesion extends Fragment {
                                 transaction.replace(R.id.contenedorFragment, MapaFragment);
                                 transaction.commit();
                             } else {
-                                // Hubo un error al crear la cuenta
+                                // Hubo un error al crear la cuentas
                                 // Muestra un mensaje de error o realiza alguna acción de manejo de errores
                             }
                         }
