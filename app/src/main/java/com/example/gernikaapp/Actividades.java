@@ -32,7 +32,7 @@ public class Actividades extends AppCompatActivity {
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-            // Bloquear el botón de retroceso
+            // Bloquear el botón de retrocesos
             return true;
         }
         return super.dispatchKeyEvent(event);
