@@ -18,4 +18,12 @@ public class Usuario {
     @NonNull
     @ColumnInfo(name = "guardarContra")
     public boolean guardarContra;
+
+
+    public Usuario(String nombre,String contrasenya,boolean guardarContra){
+
+        this.nombre=nombre;
+        this.contrasenya=contrasenya;
+        this.guardarContra=guardarContra;
+    }
 }

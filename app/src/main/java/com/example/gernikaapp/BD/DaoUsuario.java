@@ -18,6 +18,8 @@ public interface DaoUsuario {
 
     @Query("SELECT * FROM Usuario WHERE id= :idEnviar")
     Usuario obtenerUsuario(int idEnviar);
+    @Query("SELECT * FROM Usuario WHERE nombre= :nombree")
+    Usuario obtenerUsuarioNombre(String nombree);
 
     @Insert void insertarUsuario(Usuario usuario);
 

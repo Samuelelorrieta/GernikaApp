@@ -11,7 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
 
+import com.example.gernikaapp.BD.AppDatabase;
+import com.example.gernikaapp.BD.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
@@ -47,6 +50,15 @@ public class inicioSesion extends Fragment {
         mAuth=FirebaseAuth.getInstance();
         EditText nombre = view.findViewById(R.id.nombre);
         EditText contra = view.findViewById(R.id.contra);
+
+        AppDatabase appDatabase = Room.databaseBuilder(
+                getActivity().getApplicationContext(),
+                AppDatabase.class,
+                "inicioSesion"
+        ).allowMainThreadQueries().build();
+        Usuario user = appDatabase.daoUsuario().obtenerUsuarioNombre("Samuela");
+        nombre.setText(user.nombre);
+
 
         Boolean check = view.findViewById(R.id.bool).isActivated();
 
