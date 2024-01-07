@@ -1,5 +1,6 @@
 package com.example.gernikaapp;
 
+import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,7 +18,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class RuletaFragment extends Fragment {
 
@@ -65,8 +69,6 @@ public class RuletaFragment extends Fragment {
         btn_Comprobar.setVisibility(View.INVISIBLE);
 
         //Invisible los Tiks
-
-
         flecha.setOnClickListener(v -> {
             if (!gira) {
                 posicionRadianes = new Random().nextInt(21);
@@ -77,14 +79,13 @@ public class RuletaFragment extends Fragment {
         });
 
         btn_Comprobar.setOnClickListener(v -> {
+
+            validarPueblos();
+
             if (txt_Pueblo1.getText().toString().isEmpty() || txt_Pueblo2.getText().toString().isEmpty() || txt_Pueblo3.getText().toString().isEmpty()) {
                 Toast.makeText(requireContext(), "Rellena todos los campos", Toast.LENGTH_SHORT).show();
             } else {
-
-                if (String.valueOf(txt_Pueblo1.getText().toString().charAt(0)) != (letrasRuleta[posicionRadianes]) || String.valueOf(txt_Pueblo2.getText().toString().charAt(0)) != (letrasRuleta[posicionRadianes]) || String.valueOf(txt_Pueblo3.getText().toString().charAt(0)) != (letrasRuleta[posicionRadianes])) {
-                    Toast.makeText(requireContext(), "Algún Pueblo/Ciudad no empieza por: " + letrasRuleta[posicionRadianes], Toast.LENGTH_SHORT).show();
-                } else {
-
+                if(validarPueblos() == true){
                     //Guardar toda la información para el Marker del mapa
                     Bundle bundle = new Bundle();
                     bundle.putDouble("lat", lat);
@@ -129,4 +130,67 @@ public class RuletaFragment extends Fragment {
             }
         }, 1);
     }
+
+    public boolean validarPueblos() {
+        boolean todoCorrecto = false;
+
+        // Obtener los textos de los TextView en un array
+        String[] pueblos = {
+                txt_Pueblo1.getText().toString(),
+                txt_Pueblo2.getText().toString(),
+                txt_Pueblo3.getText().toString()
+        };
+
+        // Verificar que los textos en los TextView no sean iguales
+        if (!pueblos[0].equalsIgnoreCase(pueblos[1]) && !pueblos[0].equalsIgnoreCase(pueblos[2]) &&
+                !pueblos[1].equalsIgnoreCase(pueblos[2])) {
+
+            // Obtiene el archivo .txt de la carpeta raw
+            Resources res = getResources();
+            InputStream is = res.openRawResource(R.raw.puebloseuskadi);
+
+            // Lee el archivo .txt
+            Scanner scanner = new Scanner(is);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] elementos = line.split("#");
+
+                // Reinicia la validación en cada iteración
+                boolean pueblo1PuebloValidado = false;
+                boolean pueblo2PuebloValidado = false;
+                boolean pueblo3PuebloValidado = false;
+
+                for (String elemento : elementos) {
+                    if (elemento.startsWith(letrasRuleta[posicionRadianes])) {
+                        System.out.println(elemento);
+
+                        if (pueblos[0].equalsIgnoreCase(elemento) && !pueblo1PuebloValidado) {
+                            pueblo1PuebloValidado = true;
+                        }
+
+                        if (pueblos[1].equalsIgnoreCase(elemento) && !pueblo2PuebloValidado) {
+                            pueblo2PuebloValidado = true;
+                        }
+
+                        if (pueblos[2].equalsIgnoreCase(elemento) && !pueblo3PuebloValidado) {
+                            pueblo3PuebloValidado = true;
+                        }
+
+                        // Verifica que todos los pueblos estén validados
+                        if (pueblo1PuebloValidado && pueblo2PuebloValidado && pueblo3PuebloValidado) {
+                            todoCorrecto = true;
+                        }
+                    }
+                }
+            }
+            scanner.close();
+        }else{
+            Toast.makeText(requireContext(), "Esta prohibido usar repetir nombres", Toast.LENGTH_SHORT).show();
+        }
+
+        return todoCorrecto;
+    }
+
+
+
 }
