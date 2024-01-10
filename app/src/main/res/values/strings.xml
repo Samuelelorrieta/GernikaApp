@@ -49,4 +49,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="titulo_puzzle">Resuelve el Puzzle</string>
+    <string name="registro">Registro</string>
+    <string name="inicioSesion">Inicio de Sesion\n</string>
+    <string name="iniciar_sesion">Iniciar Sesion</string>
 </resources>
