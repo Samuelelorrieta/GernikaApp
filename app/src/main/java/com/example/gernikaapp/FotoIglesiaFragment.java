@@ -13,11 +13,8 @@ import androidx.fragment.app.Fragment;
 
 public class FotoIglesiaFragment extends Fragment {
     //Informacion para llegar a la siguiente parte de la gincana
-    private final double lat = 43.28397879770591;
-    private final double lon = -2.9645066850317825;
-    private final String ubicacion = "Casa de juntas";
     private final int queFragmentVoy = 4;
-
+    //----------------//
 
     public FotoIglesiaFragment() {
         // Required empty public constructor
@@ -66,9 +63,6 @@ public class FotoIglesiaFragment extends Fragment {
 
                                 //Guardar toda la información para el Marker del mapa
                                 Bundle bundle = new Bundle();
-                                bundle.putDouble("lat", lat);
-                                bundle.putDouble("lon", lon);
-                                bundle.putString("ubicacion", ubicacion);
                                 bundle.putInt("queFragmentVoy", queFragmentVoy);
 
                                 try {

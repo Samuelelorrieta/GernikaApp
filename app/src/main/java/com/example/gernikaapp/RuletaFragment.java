@@ -37,10 +37,8 @@ public class RuletaFragment extends Fragment {
     private MediaPlayer mediaPlayer;
 
     //Informacion para llegar a la siguiente parte de la gincana
-    private final double lat = 43.31301718188222;
-    private final double lon = -2.679944871371978;
-    private final String ubicacion = "Arbol de Gernika";
-    private final int queFragmentVoy = 4;
+    private final int queFragmentVoy = 5;
+    //----------------//
 
     public RuletaFragment() {
         // Required empty public constructor
@@ -88,15 +86,15 @@ public class RuletaFragment extends Fragment {
                 if(validarPueblos() == true){
                     //Guardar toda la información para el Marker del mapa
                     Bundle bundle = new Bundle();
-                    bundle.putDouble("lat", lat);
-                    bundle.putDouble("lon", lon);
-                    bundle.putString("ubicacion", ubicacion);
                     bundle.putInt("queFragmentVoy", queFragmentVoy);
 
-                    CancionArboledaFragment cancionArboledaFragment = new CancionArboledaFragment();
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.contenedorFragment, cancionArboledaFragment);
-                    transaction.commit();
+                    MapaFragment mapaFragment = new MapaFragment();
+                    mapaFragment.setArguments(bundle);
+
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.contenedorFragment, mapaFragment)
+                            .addToBackStack(null)
+                            .commit();
                 }
             }
         });

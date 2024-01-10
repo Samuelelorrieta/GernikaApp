@@ -17,11 +17,8 @@ import androidx.fragment.app.FragmentTransaction;
 public class BunkerFragment extends Fragment {
 
     //Informacion para llegar a la siguiente parte de la gincana
-    private final double lat = 43.28397879770591;
-    private final double lon = -2.9645066850317825;
-    private final String ubicacion = "Iglesia San Francisco";
     private final int queFragmentVoy = 2;
-
+    //----------------//
     public BunkerFragment() {
         // Constructor vacío requerido por Android
     }
@@ -51,9 +48,6 @@ public class BunkerFragment extends Fragment {
 
                             //Guardar toda la información para el Marker del mapa
                             Bundle bundle = new Bundle();
-                            bundle.putDouble("lat", lat);
-                            bundle.putDouble("lon", lon);
-                            bundle.putString("ubicacion", ubicacion);
                             bundle.putInt("queFragmentVoy", queFragmentVoy);
 
                             try {
