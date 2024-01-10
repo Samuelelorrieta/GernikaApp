@@ -7,14 +7,10 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
-import com.example.gernikaapp.Modelo.Ubicaciones;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.ArrayList;
 
 public class Actividades extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private  ArrayList<Ubicaciones> listaUbicaciones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +24,10 @@ public class Actividades extends AppCompatActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         // Reemplaza el contenido del contenedor con el Fragment
-        transaction.replace(R.id.contenedorFragment, new MapaFragment());
+        transaction.replace(R.id.contenedorFragment, new inicioSesion());
 
         // Confirma la transacción
         transaction.commit();
-
-        //Recogida de Ubicaciones ya cargadas en el ArrayList
-        listaUbicaciones = getIntent().getParcelableArrayListExtra("clave_listaUbicaciones");
-
-    }
-
-    public ArrayList<Ubicaciones> obtenerArrayList() {
-        return listaUbicaciones;
     }
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
