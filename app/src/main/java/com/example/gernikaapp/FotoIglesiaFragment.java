@@ -12,6 +12,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class FotoIglesiaFragment extends Fragment {
+    //Informacion para llegar a la siguiente parte de la gincana
+    private final double lat = 43.28397879770591;
+    private final double lon = -2.9645066850317825;
+    private final String ubicacion = "Casa de juntas";
+    private final int queFragmentVoy = 4;
+
 
     public FotoIglesiaFragment() {
         // Required empty public constructor
@@ -27,7 +33,6 @@ public class FotoIglesiaFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         ImageView tick = view.findViewById(R.id.tick);
         ImageView equis = view.findViewById(R.id.equis);
         ImageView equis2 = view.findViewById(R.id.equis2);
@@ -43,28 +48,56 @@ public class FotoIglesiaFragment extends Fragment {
         RadioButton rbIglesia3 = view.findViewById(R.id.radioButtonIglesia3);
         RadioButton rbIglesia4 = view.findViewById(R.id.radioButtonIglesia4);
 
-        botonComprobar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (rbIglesia1.isChecked()) {
-                    equis.setVisibility(View.VISIBLE);
-                    equis2.setVisibility(View.INVISIBLE);
-                    equis3.setVisibility(View.INVISIBLE);
-                } else if (rbIglesia2.isChecked()) {
-                    tick.setVisibility(View.VISIBLE);
-                    equis.setVisibility(View.INVISIBLE);
-                    equis2.setVisibility(View.INVISIBLE);
-                    equis3.setVisibility(View.INVISIBLE);
-                } else if (rbIglesia3.isChecked()) {
-                    equis2.setVisibility(View.VISIBLE);
-                    equis.setVisibility(View.INVISIBLE);
-                    equis3.setVisibility(View.INVISIBLE);
-                } else if (rbIglesia4.isChecked()) {
-                    equis3.setVisibility(View.VISIBLE);
-                    equis.setVisibility(View.INVISIBLE);
-                    equis2.setVisibility(View.INVISIBLE);
+            botonComprobar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (rbIglesia1.isChecked()) {
+                        equis.setVisibility(View.VISIBLE);
+                        equis2.setVisibility(View.INVISIBLE);
+                        equis3.setVisibility(View.INVISIBLE);
+                    } else if (rbIglesia2.isChecked()) {
+                        tick.setVisibility(View.VISIBLE);
+                        equis.setVisibility(View.INVISIBLE);
+                        equis2.setVisibility(View.INVISIBLE);
+                        equis3.setVisibility(View.INVISIBLE);
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                //Guardar toda la información para el Marker del mapa
+                                Bundle bundle = new Bundle();
+                                bundle.putDouble("lat", lat);
+                                bundle.putDouble("lon", lon);
+                                bundle.putString("ubicacion", ubicacion);
+                                bundle.putInt("queFragmentVoy", queFragmentVoy);
+
+                                try {
+                                    // Pausa el hilo durante 3 segundos (3000 milisegundos)
+                                    Thread.sleep(3000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+
+                                MapaFragment mapaFragment = new MapaFragment();
+                                mapaFragment.setArguments(bundle);
+
+                                getActivity().getSupportFragmentManager().beginTransaction()
+                                        .replace(R.id.contenedorFragment, mapaFragment)
+                                        .addToBackStack(null)
+                                        .commit();
+                                // Después de la pausa, puedes realizar más operaciones en este hilo
+                            }
+                        }).start();
+                    } else if (rbIglesia3.isChecked()) {
+                        equis2.setVisibility(View.VISIBLE);
+                        equis.setVisibility(View.INVISIBLE);
+                        equis3.setVisibility(View.INVISIBLE);
+                    } else if (rbIglesia4.isChecked()) {
+                        equis3.setVisibility(View.VISIBLE);
+                        equis.setVisibility(View.INVISIBLE);
+                        equis2.setVisibility(View.INVISIBLE);
+                    }
                 }
-            }
-        });
+            });
     }
 }

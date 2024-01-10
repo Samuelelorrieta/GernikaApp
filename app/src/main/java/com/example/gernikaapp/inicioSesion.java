@@ -56,8 +56,6 @@ public class inicioSesion extends Fragment {
                 AppDatabase.class,
                 "inicioSesion"
         ).allowMainThreadQueries().build();
-        Usuario user = appDatabase.daoUsuario().obtenerUsuarioNombre("Samuela");
-        nombre.setText(user.nombre);
 
 
         Boolean check = view.findViewById(R.id.bool).isActivated();

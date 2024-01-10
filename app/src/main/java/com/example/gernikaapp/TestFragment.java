@@ -78,7 +78,7 @@ public class TestFragment extends Fragment {
 
             if (test1.isChecked() && test2.isChecked() && test3.isChecked()) {
                 error.setVisibility(View.VISIBLE);
-                Intent irBunker = new Intent(requireContext(), MainActivity.class);
+                Intent irBunker = new Intent(requireContext(), FotoIglesiaFragment.class);
                 new Handler().postDelayed(() -> {
                     startActivity(irBunker);
                     // Puedes realizar más operaciones después de la pausa en este hilo

@@ -1,24 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".PruebaFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/comingsoon" />
+        android:background="@color/azul_fondo"
+        android:backgroundTint="@color/azul_fondo"
+        tools:context=".MainActivity">
 
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/lbl_Ruleta"
+            android:layout_width="469dp"
+            android:layout_height="159dp"
+            android:gravity="center"
+            android:text="@string/lbl_descripcion_cancion"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
+            android:textColorLink="@color/black"
+            android:textSize="50sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.04" />
 
+        <TextView
+            android:id="@+id/lbl_Ruleta2"
+            android:layout_width="469dp"
+            android:layout_height="159dp"
+            android:gravity="center"
+            android:text="@string/lbl_descripcion_cancion2"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
+            android:textColorLink="@color/black"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.167" />
+
+        <TextView
+            android:id="@+id/lbl_cancion"
+            android:layout_width="490dp"
+            android:layout_height="696dp"
+            android:fontFamily="serif"
+            android:text="Gernikako arbola da bedeinkatua Euskaldunen artean guztiz 1-........... Eman ta zabal zazu munduan frutua adoratzen zaitugu 2-...... santua  Mila urte inguru da esaten dutela Jainkoan jarri zuela 3-........ arbola. Zaude bada zutikan orain da denbora eroritzen bazera arras 4-..... gera  Ez zera eroriko arbola maitea baldin portatzen bada Bizkaiko Juntia. Laurok hartuko degu 5-....... partea pakian bizi dedin euskaldun jendia.  Betiko bizi dedin Jaunari eskatzeko jarri gaitezen danok laister belauniko. Eta 6-............ eskatu ezkero arbola biziko da orain eta gero.  Arbola botatzia dutena pentsatu Euskal Herri guztian denak badakigu. Ea bada 7-...... denbora orain degu erori gabetanik eduki behar degu.  Beti egongo zera udaberrikoa lore aintzinetako mantxa gabekoa. Erruki zaite, bada, bihotz gurekoa denbora galdu gabe 8-....... frutua.  Arbolak erantzun du kontuz bizitzeko eta bihotzetikan Jaunari eskatzeko, gerrarik nahi ez degu pakea betiko, gure lege 9-....... hemen maitatzeko.  Erregutu diogun Jaungoiko Jaunari pakea emateko orain eta beti. Baita indarra ere zerorren lurrari eta bendizioa Euskal Herriari."
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.845" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:ems="10"
+            android:hint="1-"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
+            android:textColorHint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.648" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="430dp"
+            android:layout_height="47dp"
+            android:hint="@string/txt_pueblo_ciudad_3"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="1024dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

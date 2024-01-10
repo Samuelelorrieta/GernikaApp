@@ -475,5 +475,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.706" />
 
+    <Button
+        android:id="@+id/showPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show pop up"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="621dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

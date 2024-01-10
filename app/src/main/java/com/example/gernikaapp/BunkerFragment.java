@@ -17,8 +17,8 @@ import androidx.fragment.app.FragmentTransaction;
 public class BunkerFragment extends Fragment {
 
     //Informacion para llegar a la siguiente parte de la gincana
-    private final double lat = 43.30888911048448;
-    private final double lon = -2.6833587603397713;
+    private final double lat = 43.28397879770591;
+    private final double lon = -2.9645066850317825;
     private final String ubicacion = "Iglesia San Francisco";
     private final int queFragmentVoy = 2;
 
