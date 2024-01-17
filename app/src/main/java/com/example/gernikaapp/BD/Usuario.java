@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 @Entity
 public class Usuario {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "id")
     public int id;
@@ -18,7 +18,6 @@ public class Usuario {
     @NonNull
     @ColumnInfo(name = "guardarContra")
     public boolean guardarContra;
-
 
     public Usuario(String nombre,String contrasenya,boolean guardarContra){
 
