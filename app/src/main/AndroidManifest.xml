@@ -18,6 +18,9 @@
         android:theme="@style/Theme.GernikaApp"
         tools:targetApi="31">
         <activity
+            android:name=".PuzzleMain"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
@@ -30,7 +33,7 @@
             android:name=".PuzzleFragment"
             android:exported="false" />
         <activity
-            android:name=".PuzzleMain"
+            android:name=".Zitadela"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
