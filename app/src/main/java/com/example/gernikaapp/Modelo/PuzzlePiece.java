@@ -21,4 +21,8 @@ public class PuzzlePiece extends AppCompatImageView {
         // Manejar el clic aquí si es necesario
         return true; // Indica que el clic fue manejado
     }
+
+    public boolean isInRightPlace() {
+        return getX() == xCoord && getY() == yCoord;
+    }
 }
