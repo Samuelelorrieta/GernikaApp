@@ -62,7 +62,7 @@ public class Figuras extends Fragment {
         TextView Caballo =view.findViewById(R.id.caballo);
         TextView Paloma =view.findViewById(R.id.paloma);
         TextView Madre =view.findViewById(R.id.madre);
-        Button continuar
+        Button continuar = view.findViewById(R.id.continuarFiguras);
 
         TextView titulo =view.findViewById(R.id.Titulo);
         titulo.setVisibility(View.INVISIBLE);
@@ -70,6 +70,10 @@ public class Figuras extends Fragment {
         Descripcion.setVisibility(View.INVISIBLE);
         ImageView imagen =view.findViewById(R.id.imagenFigura);
         imagen.setVisibility(View.INVISIBLE);
+
+        toro.setOnClickListener(v -> {
+            cambiarFragment();
+                });
 
         toro.setOnClickListener(v -> {
             rellenarDatos(titulo,Descripcion,imagen,"Toro");
@@ -93,6 +97,9 @@ public class Figuras extends Fragment {
         });
 
 
+    }
+
+    private void cambiarFragment() {
     }
 
     private void rellenarDatos(TextView titulo, TextView descripcion, ImageView imagen, String nombre) {
