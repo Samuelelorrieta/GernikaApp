@@ -35,7 +35,7 @@ public class GernikaVideoFragment extends Fragment {
 
         // Iniciar el video y sus controles
         VideoView videoView = view.findViewById(R.id.videoViewE);
-        //videoView.setVideoPath("android.resource://" + requireActivity().getPackageName() + "/" + R.raw.videocuadro);
+        videoView.setVideoPath("android.resource://" + requireActivity().getPackageName() + "/" + R.raw.videocuadro);
         MediaController mediaController = new MediaController(requireContext());
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);
