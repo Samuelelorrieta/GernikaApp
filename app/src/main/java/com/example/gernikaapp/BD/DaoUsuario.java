@@ -4,18 +4,8 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-
-import com.example.gernikaapp.BD.Respuesta;
-import com.example.gernikaapp.BD.Usuario;
-
 @Dao
 public interface DaoUsuario {
-    @Query("SELECT * FROM Pregunta WHERE id= :idEnviar")
-    Pregunta obtenerPregunta(int idEnviar);
-
-    @Query("SELECT * FROM Respuesta WHERE id= :idEnviar")
-    Respuesta obtenerRespuesta(int idEnviar);
-
     @Query("SELECT * FROM Usuario WHERE id= :idEnviar")
     Usuario obtenerUsuario(int idEnviar);
     @Query("SELECT * FROM Usuario WHERE nombre= :nombree")

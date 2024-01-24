@@ -6,15 +6,18 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Pregunta {
+public class Figura {
 
-    @PrimaryKey(autoGenerate = true)
+    public Figura(int id,String nombre){
+        this.id=id;
+        this.nombre=nombre;
+    }
+
+    @PrimaryKey
     @NonNull
     @ColumnInfo(name = "id")
     public int id;
-
     @NonNull
-    @ColumnInfo(name = "pregunta")
-    public String pregunta;
-
+    @ColumnInfo(name = "nombre")
+    public String nombre;
 }

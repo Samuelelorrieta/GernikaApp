@@ -70,7 +70,7 @@ public class IniciarSesion extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Button registro = view.findViewById(R.id.registro);
+        Button registro = view.findViewById(R.id.Euskera);
         Button recordar = view.findViewById(R.id.recordarContra);
         EditText nombre = view.findViewById(R.id.nombre);
         EditText contra = view.findViewById(R.id.contra);

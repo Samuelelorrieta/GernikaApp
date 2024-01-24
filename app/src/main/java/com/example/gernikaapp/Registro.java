@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,8 +20,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,7 +62,7 @@ public class Registro extends Fragment {
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Button registro = view.findViewById(R.id.registro);
+        Button registro = view.findViewById(R.id.Euskera);
         EditText nombre = view.findViewById(R.id.nombre);
         EditText contra = view.findViewById(R.id.contra);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
