@@ -100,6 +100,11 @@ public class Figuras extends Fragment {
     }
 
     private void cambiarFragment() {
+
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.contenedorFragment, new MapaFragment())
+                .addToBackStack(null)
+                .commit();
     }
 
     private void rellenarDatos(TextView titulo, TextView descripcion, ImageView imagen, String nombre) {
