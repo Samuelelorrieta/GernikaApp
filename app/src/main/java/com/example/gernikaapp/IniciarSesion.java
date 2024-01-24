@@ -78,10 +78,6 @@ public class IniciarSesion extends Fragment {
         TextView textoError =view.findViewById(R.id.textoError);
         registro.setOnClickListener(v -> {
             iniciarSesion(nombre,contra,mAuth);
-            if(nombre.getText()==null||contra.getText()==null)
-                textoError.setText("Error, rellena los campos");
-            else
-                textoError.setText("Error, intentalo de nuevo");
         });
         recordar.setOnClickListener(v -> {
             ponerContra(nombre.getText().toString(),contra);

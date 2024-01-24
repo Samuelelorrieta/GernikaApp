@@ -18,6 +18,7 @@ import java.util.ArrayList;
 
 public class Actividades extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    private ArrayList<Ubicaciones> listaUbicaciones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +69,16 @@ public class Actividades extends AppCompatActivity {
 
         // Confirma la transacción
         transaction.commit();
+
+        //Recogida de Ubicaciones ya cargadas en el ArrayList
+        listaUbicaciones = getIntent().getParcelableArrayListExtra("clave_listaUbicaciones");
+
     }
+
+    public ArrayList<Ubicaciones> obtenerArrayList() {
+        return listaUbicaciones;
+    }
+
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
@@ -78,7 +88,4 @@ public class Actividades extends AppCompatActivity {
         return super.dispatchKeyEvent(event);
     }
 
-    public ArrayList<Ubicaciones> obtenerArrayList() {
-        return null;
-    }
 }

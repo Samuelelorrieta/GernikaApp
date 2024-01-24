@@ -18,45 +18,27 @@ import android.widget.TextView;
 import com.example.gernikaapp.BD.AppDatabase;
 import com.example.gernikaapp.BD.DaoFigura;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Figuras#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Figuras extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private int queFragmentVoy=1;
 
     public Figuras() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Figuras.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Figuras newInstance(String param1, String param2) {
-        Figuras fragment = new Figuras();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        Bundle bundle = new Bundle();
+        if(bundle!=null)
+        {
+            queFragmentVoy=bundle.getInt("queFragmentVoy",1);
+        }
+
+
         TextView toro =view.findViewById(R.id.toro);
         TextView Guerrero =view.findViewById(R.id.guerrero);
         TextView Caballo =view.findViewById(R.id.caballo);
@@ -71,7 +53,7 @@ public class Figuras extends Fragment {
         ImageView imagen =view.findViewById(R.id.imagenFigura);
         imagen.setVisibility(View.INVISIBLE);
 
-        toro.setOnClickListener(v -> {
+        continuar.setOnClickListener(v -> {
             cambiarFragment();
                 });
 
@@ -100,9 +82,14 @@ public class Figuras extends Fragment {
     }
 
     private void cambiarFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putInt("queFragmentVoy",queFragmentVoy);
+        MapaFragment mapaFragment = new MapaFragment();
+        mapaFragment.setArguments(bundle);
 
         getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.contenedorFragment, new MapaFragment())
+                .replace(R.id.contenedorFragment, mapaFragment)
+
                 .addToBackStack(null)
                 .commit();
     }
@@ -135,10 +122,7 @@ public class Figuras extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override

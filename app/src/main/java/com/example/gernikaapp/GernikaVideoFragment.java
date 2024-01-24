@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 public class GernikaVideoFragment extends Fragment {
 
     Button buttonJuego;
+    private final int queFragmentVoy=1;
 
     public GernikaVideoFragment() {
         // Constructor vacío requerido
@@ -51,7 +52,15 @@ public class GernikaVideoFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //Aqui escribe el codigo para que vaya a tu Fragment
+                Bundle bundle = new Bundle();
+                bundle.putInt("queFragmentVoy",queFragmentVoy);
+                Figuras figuras = new Figuras();
+                figuras.setArguments(bundle);
+
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.contenedorFragment,figuras)
+                        .addToBackStack(null)
+                        .commit();
 
             }
         });
