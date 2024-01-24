@@ -13,11 +13,11 @@
         android:id="@+id/iglesiabuena"
         android:layout_width="164dp"
         android:layout_height="146dp"
-        android:layout_marginStart="216dp"
+        android:layout_marginStart="212dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintVertical_bias="0.268"
         app:srcCompat="@drawable/iglesiabuena" />
 
     <ImageView
@@ -28,7 +28,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.253"
+        app:layout_constraintVertical_bias="0.268"
         app:srcCompat="@drawable/iglesiamala" />
 
     <ImageView
@@ -39,18 +39,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.521"
+        app:layout_constraintVertical_bias="0.548"
         app:srcCompat="@drawable/iglesiamala1" />
 
     <ImageView
         android:id="@+id/iglesiamal2"
         android:layout_width="164dp"
         android:layout_height="146dp"
-        android:layout_marginStart="216dp"
+        android:layout_marginStart="212dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.521"
+        app:layout_constraintVertical_bias="0.548"
         app:srcCompat="@drawable/iglesiamala2" />
 
     <RadioGroup
@@ -62,7 +62,7 @@
         app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.845">
+        app:layout_constraintVertical_bias="0.887">
 
         <RadioButton
             android:id="@+id/radioButtonIglesia1"
@@ -95,6 +95,10 @@
         android:layout_width="337dp"
         android:layout_height="38dp"
         android:text="@string/btn_comprobar"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/verde_boton"
+        android:textColorHint="@color/black"
+        android:textColorLink="@color/verde_boton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
@@ -113,21 +117,7 @@
         app:layout_constraintHorizontal_bias="0.389"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.67"
-        tools:ignore="MissingConstraints" />
-
-    <ImageView
-        android:id="@+id/equis2"
-        android:layout_width="49dp"
-        android:layout_height="35dp"
-        android:src="@drawable/incorrecto"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.389"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.807"
+        app:layout_constraintVertical_bias="0.705"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -141,7 +131,7 @@
         app:layout_constraintHorizontal_bias="0.389"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.879"
+        app:layout_constraintVertical_bias="0.913"
         tools:ignore="MissingConstraints" />
 
     <ImageView
@@ -155,6 +145,68 @@
         app:layout_constraintHorizontal_bias="0.389"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.742"
+        app:layout_constraintVertical_bias="0.777"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/equis2"
+        android:layout_width="49dp"
+        android:layout_height="35dp"
+        android:src="@drawable/incorrecto"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.389"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.841"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textViewDescripcion"
+        android:layout_width="339dp"
+        android:layout_height="101dp"
+        android:text="Intenta adivinar en que iglesia estás ahora. Mira por los alrededores y clica sobre la iglesia correspondiente en los círculos de abajo."
+        android:textFontWeight="30"
+        android:textSize="50px"
+        android:textStyle="italic"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="28dp" />
+
+    <TextView
+        android:id="@+id/textViewIglesia2"
+        android:layout_width="28dp"
+        android:layout_height="64dp"
+        android:text="2"
+        android:textSize="50px"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="138dp" />
+
+    <TextView
+        android:id="@+id/textViewIglesia3"
+        android:layout_width="28dp"
+        android:layout_height="64dp"
+        android:text="3"
+        android:textSize="50px"
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="303dp" />
+
+    <TextView
+        android:id="@+id/textViewIglesia4"
+        android:layout_width="28dp"
+        android:layout_height="64dp"
+        android:text="4"
+        android:textSize="50px"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="303dp" />
+
+    <TextView
+        android:id="@+id/textViewIglesia"
+        android:layout_width="28dp"
+        android:layout_height="64dp"
+        android:text="1"
+        android:textSize="50px"
+        tools:layout_editor_absoluteX="113dp"
+        tools:layout_editor_absoluteY="138dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

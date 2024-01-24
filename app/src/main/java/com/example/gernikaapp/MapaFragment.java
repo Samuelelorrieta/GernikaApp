@@ -182,6 +182,11 @@ public class MapaFragment extends Fragment {
                         switch (queFragmentVoy) {
                             case 0:
                                 // Fragment a Puzzle
+                                GernikaVideoFragment gernikaVideoFragment = new GernikaVideoFragment();
+                                FragmentTransaction transaction0 = requireActivity().getSupportFragmentManager().beginTransaction();
+                                transaction0.replace(R.id.contenedorFragment, gernikaVideoFragment);
+                                error = false;
+                                transaction0.commit();
                                 break;
                             case 1:
                                 // Lleva a BunkerFragment
