@@ -80,7 +80,10 @@ public class MapaFragment extends Fragment {
         ubicacion = listaUbicaciones.get(queFragmentVoy).getNombreUbicacion().toString();
 
         //Inicializamos el GeoPoint con las coordenadas necesarias
-        geoPoint = new GeoPoint(lat, lon); // Coordenadas del marcador
+        //geoPoint = new GeoPoint(lat, lon); // Coordenadas del marcador
+        geoPoint = new GeoPoint( 43.2837756904145, -2.964419127575523); // Coordenadas del marcador
+
+
 
         // Configuración de osmdroid
         Context ctx = requireActivity().getApplicationContext();
@@ -182,9 +185,9 @@ public class MapaFragment extends Fragment {
                         switch (queFragmentVoy) {
                             case 0:
                                 // Fragment a Puzzle
-                                GernikaVideoFragment gernikaVideoFragment = new GernikaVideoFragment();
+                                GernikaVideoFragment GernikaVideoFragment = new GernikaVideoFragment();
                                 FragmentTransaction transaction0 = requireActivity().getSupportFragmentManager().beginTransaction();
-                                transaction0.replace(R.id.contenedorFragment, gernikaVideoFragment);
+                                transaction0.replace(R.id.contenedorFragment, GernikaVideoFragment);
                                 error = false;
                                 transaction0.commit();
                                 break;
