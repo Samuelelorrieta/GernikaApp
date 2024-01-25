@@ -3,18 +3,26 @@ package com.example.gernikaapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
+import com.example.gernikaapp.BD.AppDatabase;
 import com.example.gernikaapp.BD.Figura;
+import com.example.gernikaapp.BD.JuegoRuleta.DaoMunicipio;
+import com.example.gernikaapp.BD.JuegoRuleta.Letra;
+import com.example.gernikaapp.BD.JuegoRuleta.Municipio;
 import com.example.gernikaapp.BD.Texto;
 import com.example.gernikaapp.Modelo.Ubicaciones;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Actividades extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -28,6 +36,53 @@ public class Actividades extends AppCompatActivity {
         Boolean primerInicio = prefs.getBoolean("primerInicio", true);
         if(primerInicio)
         {
+
+            //Insert de Letras
+            Letra a  = new Letra("A");
+            Letra b  = new Letra("B");
+            Letra d  = new Letra("D");
+            Letra e  = new Letra("E");
+            Letra f  = new Letra("F");
+            Letra g  = new Letra("G");
+            Letra h  = new Letra("H");
+            Letra i  = new Letra("I");
+            Letra j  = new Letra("J");
+            Letra k  = new Letra("K");
+            Letra l  = new Letra("L");
+            Letra m  = new Letra("M");
+            Letra n  = new Letra("N");
+            Letra o  = new Letra("O");
+            Letra p  = new Letra("P");
+            Letra r  = new Letra("R");
+            Letra s  = new Letra("S");
+            Letra t  = new Letra("T");
+            Letra u  = new Letra("U");
+            Letra x  = new Letra("X");
+            Letra z  = new Letra("Z");
+
+            //Insert de Municipios
+            Resources res = getResources();
+            InputStream is = res.openRawResource(R.raw.puebloseuskadi);
+            String[] elementos = new String[0];
+
+            Scanner scanner = new Scanner(is);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                elementos = line.split("#");
+            }
+
+            for (String listaMunicipios: elementos) {
+
+            }
+
+
+            scanner.close();
+
+
+
+
+
+
             //Meter todos los inserts
 
             Figura toro = new Figura(1,"Toro");

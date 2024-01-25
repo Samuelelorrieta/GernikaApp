@@ -17,6 +17,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Dao;
+import androidx.room.Room;
+
+import com.example.gernikaapp.BD.AppDatabase;
+import com.example.gernikaapp.BD.DaoFigura;
+import com.example.gernikaapp.BD.JuegoRuleta.DaoMunicipio;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -187,6 +193,16 @@ public class RuletaFragment extends Fragment {
         }
 
         return todoCorrecto;
+    }
+
+    public DaoMunicipio llamarBD(){
+        AppDatabase db = Room.databaseBuilder(
+                        getContext().getApplicationContext(),
+                        AppDatabase.class,
+                        "Gernika")
+                .allowMainThreadQueries().build();
+        DaoMunicipio dao=db.daoMunicipio();
+        return dao;
     }
 
 
