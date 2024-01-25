@@ -15,8 +15,12 @@
         android:layout_height="64dp"
         android:text="4"
         android:textSize="50px"
-        tools:layout_editor_absoluteX="286dp"
-        tools:layout_editor_absoluteY="303dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.767"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.454"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -25,8 +29,12 @@
         android:layout_height="64dp"
         android:text="3"
         android:textSize="50px"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="303dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.284"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.454"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -35,8 +43,12 @@
         android:layout_height="64dp"
         android:text="2"
         android:textSize="50px"
-        tools:layout_editor_absoluteX="286dp"
-        tools:layout_editor_absoluteY="138dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.203"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -45,21 +57,28 @@
         android:layout_height="64dp"
         android:text="1"
         android:textSize="50px"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="138dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.284"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.206"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textViewDescripcion2"
         android:layout_width="340dp"
         android:layout_height="116dp"
+        android:layout_marginTop="20dp"
         android:text="Ahora haz lo mismo que en el minijuego anterior. Mira por los alrededores y clica sobre la iglesia correspondiente en los círculos de abajo."
         android:textFontWeight="30"
         android:textSize="50px"
         android:textStyle="italic"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="13dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/iglesiabuena2"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/azul_fondo"
     tools:context=".GernikaVideoFragment">
 
     <TextView
@@ -34,6 +34,9 @@
         android:layout_marginBottom="34dp"
         android:gravity="center"
         android:text="A continuación, tenéis que ver el video sobre el cuadro de Gernika. Una vez terminado el video, tenéis que pulsar el botón que está debajo de este para poder recibir más información sobre el cuadro de Gernika."
+        android:textColor="@color/black"
+        android:textColorHighlight="@color/black"
+        android:textColorHint="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/videoViewE"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +50,8 @@
         android:layout_marginBottom="31dp"
         android:backgroundTint="@color/verde_boton"
         android:text="Mas Información"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
