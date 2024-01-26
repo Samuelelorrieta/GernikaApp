@@ -40,16 +40,6 @@ public class Actividades extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividades);
 
-        //-------------------------------------------------------------------------------------/
-
-
-
-
-        //-------------------------------------------------------------------------------------/
-
-
-
-
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE); //Inicia shared preferences
         Boolean primerInicio = prefs.getBoolean("primerInicio", true);
         if (primerInicio) {
@@ -103,8 +93,13 @@ public class Actividades extends AppCompatActivity {
                     int numero = abecedario.indexOf(primeraLetra) + 1;
 
                     //Meter el Municipio con su nombre y codigo de letra
-                    Municipio municipio = new Municipio(listaMunicipios.trim(), numero);
-                    dao.insertarMunicipio(municipio);
+                    Municipio municipio = new Municipio(listaMunicipios.trim().toString(), numero);
+                    try {
+                        dao.insertarMunicipio(municipio);
+                    } catch (Exception e) {
+                        System.out.println("No Funciona");
+                    }
+
                 }
             }
             scanner.close();

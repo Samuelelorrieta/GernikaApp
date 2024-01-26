@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +24,11 @@ import androidx.room.Room;
 import com.example.gernikaapp.BD.AppDatabase;
 import com.example.gernikaapp.BD.DaoFigura;
 import com.example.gernikaapp.BD.JuegoRuleta.DaoMunicipio;
+import com.example.gernikaapp.BD.JuegoRuleta.Municipio;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -106,6 +109,7 @@ public class RuletaFragment extends Fragment {
         });
     }
 
+
     public void startSpin() {
         new Handler().postDelayed(() -> {
             ruleta.setRotation(rotacion);
@@ -129,6 +133,9 @@ public class RuletaFragment extends Fragment {
                 txt_Pueblo2.setEnabled(true);
                 txt_Pueblo3.setEnabled(true);
                 btn_Comprobar.setVisibility(View.VISIBLE);
+
+                obtenerMunicipiosPorLetra();
+
             } else {
                 startSpin();
             }
@@ -195,13 +202,22 @@ public class RuletaFragment extends Fragment {
         return todoCorrecto;
     }
 
-    public DaoMunicipio llamarBD(){
+    private DaoMunicipio obtenerMunicipiosPorLetra() {
+        //Cración de BD
         AppDatabase db = Room.databaseBuilder(
                         getContext().getApplicationContext(),
                         AppDatabase.class,
                         "Gernika")
                 .allowMainThreadQueries().build();
-        DaoMunicipio dao=db.daoMunicipio();
+
+        DaoMunicipio dao = db.daoMunicipio();
+
+        List<Municipio> municipios = (List<Municipio>) dao.obtenerMunicipioPorIdLetra(1);
+
+        for (Municipio municipio : municipios) {
+            System.out.println(municipio.nombre + " " + municipio.idLetra);
+        }
+
         return dao;
     }
 
