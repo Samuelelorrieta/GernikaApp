@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.example.gernikaapp.BD.AppDatabase;
 import com.example.gernikaapp.BD.Figura;
@@ -20,8 +21,14 @@ import com.example.gernikaapp.BD.Texto;
 import com.example.gernikaapp.Modelo.Ubicaciones;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Actividades extends AppCompatActivity {
@@ -32,53 +39,75 @@ public class Actividades extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividades);
-        SharedPreferences prefs = getSharedPreferences ("MisPreferencias", Context.MODE_PRIVATE); //Inicia shared preferences
+
+        //-------------------------------------------------------------------------------------/
+
+
+
+
+        //-------------------------------------------------------------------------------------/
+
+
+
+
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE); //Inicia shared preferences
         Boolean primerInicio = prefs.getBoolean("primerInicio", true);
-        if(primerInicio)
-        {
+        if (primerInicio) {
+
+            //Cración de BD
+            AppDatabase db = Room.databaseBuilder(
+                            getApplicationContext(),
+                            AppDatabase.class,
+                            "Gernika")
+                    .allowMainThreadQueries().build();
+
+            //LLamada del DaoMunicipio para hacer el instar de municipios y las letras
+            DaoMunicipio dao = db.daoMunicipio();
+
 
             //Insert de Letras
-            Letra a  = new Letra("A");
-            Letra b  = new Letra("B");
-            Letra d  = new Letra("D");
-            Letra e  = new Letra("E");
-            Letra f  = new Letra("F");
-            Letra g  = new Letra("G");
-            Letra h  = new Letra("H");
-            Letra i  = new Letra("I");
-            Letra j  = new Letra("J");
-            Letra k  = new Letra("K");
-            Letra l  = new Letra("L");
-            Letra m  = new Letra("M");
-            Letra n  = new Letra("N");
-            Letra o  = new Letra("O");
-            Letra p  = new Letra("P");
-            Letra r  = new Letra("R");
-            Letra s  = new Letra("S");
-            Letra t  = new Letra("T");
-            Letra u  = new Letra("U");
-            Letra x  = new Letra("X");
-            Letra z  = new Letra("Z");
+            String abecedario = "ABDEFGHIJKLMNOPRSTUXZ";
+            for(int cont = 0; cont < abecedario.length(); cont++){
+                String letraSola = String.valueOf(abecedario.charAt(cont));
+                Letra letra = new Letra(letraSola);
+                dao.insertarLetra(letra);
+            }
 
             //Insert de Municipios
             Resources res = getResources();
             InputStream is = res.openRawResource(R.raw.puebloseuskadi);
-            String[] elementos = new String[0];
-
             Scanner scanner = new Scanner(is);
+
+            // Mapa para rastrear el contador de cada letra
+            Map<Character, Integer> letraContador = new HashMap<>();
+
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                elementos = line.split("#");
+                String[] lisMunicipio = line.split("#");
+
+                for (String listaMunicipios : lisMunicipio) {
+                    // Obtener la primera letra del elemento
+                    char primeraLetra = listaMunicipios.toUpperCase().charAt(0);
+
+                    // Verificar si ya hemos encontrado esta letra antes
+                    if (letraContador.containsKey(primeraLetra)) {
+                        // Incrementar el contador existente
+                        int contador = letraContador.get(primeraLetra) + 1;
+                        letraContador.put(primeraLetra, contador);
+                    } else {
+                        // Agregar la letra al mapa con un contador inicial de 1
+                        letraContador.put(primeraLetra, 1);
+                    }
+
+                    // Obtener el número asociado a la letra
+                    int numero = abecedario.indexOf(primeraLetra) + 1;
+
+                    //Meter el Municipio con su nombre y codigo de letra
+                    Municipio municipio = new Municipio(listaMunicipios.trim(), numero);
+                    dao.insertarMunicipio(municipio);
+                }
             }
-
-            for (String listaMunicipios: elementos) {
-
-            }
-
-
             scanner.close();
-
-
 
 
 
@@ -120,7 +149,7 @@ public class Actividades extends AppCompatActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         // Reemplaza el contenido del contenedor con el Fragment
-        transaction.replace(R.id.contenedorFragment, new MapaFragment());
+        transaction.replace(R.id.contenedorFragment, new RuletaFragment());
 
         // Confirma la transacción
         transaction.commit();
