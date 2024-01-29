@@ -33,7 +33,7 @@
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="34dp"
         android:gravity="center"
-        android:text="@string/expliccionVideo"
+        android:text="@string/explicionVideo"
         android:textColor="@color/black"
         android:textColorHighlight="@color/black"
         android:textColorHint="@color/black"
@@ -41,7 +41,8 @@
         app:layout_constraintBottom_toTopOf="@+id/videoViewE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+    />
 
     <Button
         android:id="@+id/buttonJuegoE"

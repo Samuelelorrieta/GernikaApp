@@ -89,4 +89,5 @@
     <!-- Cancion -->
     <string name="lbl_descripcion_cancion">Rellena los huecos de la canción</string>
     <string name="lbl_descripcion_cancion2">Empezará a sonar el audio de Gernikako Arbola y tienes que rellenar los huecos que faltan. El audio se reproducirá 3 veces, buena suerte.</string>
+    <string name="ajustesUsuario">Ajustes de Usuario</string>
 </resources>

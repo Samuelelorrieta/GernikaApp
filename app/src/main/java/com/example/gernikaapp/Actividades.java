@@ -149,7 +149,7 @@ public class Actividades extends AppCompatActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         // Reemplaza el contenido del contenedor con el Fragment
-        transaction.replace(R.id.contenedorFragment, new RuletaFragment());
+        transaction.replace(R.id.contenedorFragment, new IniciarSesion());
 
         // Confirma la transacción
         transaction.commit();

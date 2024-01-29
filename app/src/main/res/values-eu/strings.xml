@@ -47,7 +47,7 @@
     <string name="lbl_descripcion_cancion2">Gernikako Arbolaren audioa entzuten hasiko da eta falta diren hutsuneak bete behar dituzu. Audioa 3 aldiz erreproduzituko da, zorte on.</string>
 
     <string name="registro">Erregistroa</string>
-    <string name="cambiarContra">pasahitza Aldatu</string>
+    <string name="cambiarContra">Pasahitza Aldatu</string>
     <string name="introduceContra">Pasahitza eman</string>
     <string name="euskera">Euskera</string>
     <string name="borrarCuenta">Kontua Ezabatu</string>
@@ -78,4 +78,5 @@
     <string name="inicioSesion">Saioaren Hasiera\n</string>
     <string name="iniciar_sesion">Hasi Saioa</string>
     <string name="castellano">Gaztelania</string>
+    <string name="ajustesUsuario">Kontuaren ezarpenak</string>
 </resources>
