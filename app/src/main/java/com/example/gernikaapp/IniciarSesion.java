@@ -70,13 +70,17 @@ public class IniciarSesion extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Button registro = view.findViewById(R.id.Euskera);
+        Button iniciar = view.findViewById(R.id.registrar);
         Button recordar = view.findViewById(R.id.recordarContra);
+        Button registro = view.findViewById(R.id.registro);
         EditText nombre = view.findViewById(R.id.nombre);
         EditText contra = view.findViewById(R.id.contra);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         TextView textoError =view.findViewById(R.id.textoError);
-        registro.setOnClickListener(v -> {
+        registro.setOnClickListener(v ->{
+            cambioPantalla(new Registro(),"",false);
+                });
+        iniciar.setOnClickListener(v -> {
             iniciarSesion(nombre,contra,mAuth);
         });
         recordar.setOnClickListener(v -> {
@@ -88,7 +92,7 @@ public class IniciarSesion extends Fragment {
         AppDatabase db = Room.databaseBuilder(
                         getContext().getApplicationContext(),
                         AppDatabase.class,
-                        "Gernika")
+                        "Gernikaren")
                 .allowMainThreadQueries().build();
         Usuario usuario = db.daoUsuario().obtenerUsuarioNombre(nombre);
         if(usuario.guardarContra)
@@ -113,14 +117,25 @@ public class IniciarSesion extends Fragment {
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            cambioPantalla(new MapaFragment());
+                            cambioPantalla(new AjustesUsuario(),correo.getText().toString(),true);
                         }
                     }).start();
                 }
             }
         });
     }
-    private void cambioPantalla(Fragment fragment){
+    private void cambioPantalla(Fragment fragment,String nombre,boolean id){
+        if(id) {
+            AppDatabase db = Room.databaseBuilder(
+                            getContext().getApplicationContext(),
+                            AppDatabase.class,
+                            "Gernikaren")
+                    .allowMainThreadQueries().build();
+            Usuario usuario = db.daoUsuario().obtenerUsuarioNombre(nombre);
+            Bundle bundle = new Bundle();
+            bundle.putInt("idUsuario", usuario.id);
+            fragment.setArguments(bundle);
+        }
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contenedorFragment, fragment)
                 .addToBackStack(null)

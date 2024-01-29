@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.gernikaapp.BD.AppDatabase;
+import com.example.gernikaapp.BD.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,6 +32,7 @@ public class AjustesUsuario extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    int id=0;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     // TODO: Rename and change types of parameters
@@ -62,10 +66,17 @@ public class AjustesUsuario extends Fragment {
         Button castellano =view.findViewById(R.id.castellano);
         Button borrar =view.findViewById(R.id.borrar);
         EditText contra = view.findViewById(R.id.nombre);
+
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            //Recogida de siguiente punto para el marker
+            id = bundle.getInt("idUsuario", 0);
+        }
+
         continuar.setOnClickListener(v -> {
             if(!(contra.getText().toString().equals("")))
                 actualizarContra(contra);
-            cambiarFragment();
+            cambiarFragment(new MapaFragment());
         });
         euskera.setOnClickListener(v -> {
             cambiarIdioma("eu");
@@ -105,7 +116,13 @@ public class AjustesUsuario extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-
+                                        AppDatabase db = Room.databaseBuilder(
+                                                        getContext().getApplicationContext(),
+                                                        AppDatabase.class,
+                                                        "Gernikaren")
+                                                .allowMainThreadQueries().build();
+                                        db.daoUsuario().actualizarContra(contra.getText().toString(),id);
+                                        cambiarFragment(new MapaFragment());
                                     } else {
                                     }
                                 }
@@ -116,18 +133,28 @@ public class AjustesUsuario extends Fragment {
             }
         }
             public void borrarUsuario(){
+
                 user.delete() //Se borra
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-
+                                    cambiarFragment(new IniciarSesion());
+                                    AppDatabase db = Room.databaseBuilder(
+                                                    getContext().getApplicationContext(),
+                                                    AppDatabase.class,
+                                                    "Gernikaren")
+                                            .allowMainThreadQueries().build();
+                                    db.daoUsuario().borrarUsuario(id);
                                 } else {
                                 }
                             }
                         });
             }
-            public void cambiarFragment(){
-
+            public void cambiarFragment(Fragment fragment){
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.contenedorFragment, new MapaFragment())
+                        .addToBackStack(null)
+                        .commit();
             }
         }

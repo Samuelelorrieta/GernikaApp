@@ -9,18 +9,6 @@
     tools:context=".Registro">
 
     <TextView
-        android:id="@+id/iniciar"
-        android:layout_width="82dp"
-        android:layout_height="93dp"
-        android:text="Si tienes cuenta, clicka aqui para iniciar sesion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.899"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.139" />
-
-    <TextView
         android:id="@+id/textoError"
         android:layout_width="0dp"
         android:layout_height="37dp"
@@ -33,10 +21,10 @@
         app:layout_constraintVertical_bias="0.84" />
 
     <Button
-        android:id="@+id/Euskera"
+        android:id="@+id/registrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/iniciar_sesion"
+        android:text="@string/registro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
@@ -49,52 +37,51 @@
         android:layout_width="240dp"
         android:layout_height="84dp"
         android:ems="10"
-        android:hint="Ej: 19374381723527H"
+        android:hint="@string/ejemploContra"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.579" />
+        app:layout_constraintVertical_bias="0.565" />
 
     <EditText
         android:id="@+id/nombre"
         android:layout_width="263dp"
         android:layout_height="68dp"
         android:ems="10"
-        android:hint="Ej: pedrito@gmail.com"
+        android:hint="@string/ejemploNombre"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.349" />
+        app:layout_constraintVertical_bias="0.285" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Introduce la contraseña"
+        android:text="@string/introduceContra"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.246"
+        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.477" />
+        app:layout_constraintVertical_bias="0.441" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Introduce tu correo electronico"
+        android:text="@string/introduceNombre"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.296"
+        app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
+        app:layout_constraintVertical_bias="0.202" />
 
     <TextView
         android:id="@+id/textView"
@@ -112,7 +99,7 @@
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recordar Contraseña"
+        android:text="@string/recordarContra"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.268"

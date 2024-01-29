@@ -9,7 +9,7 @@
     tools:context=".IniciarSesion">
 
     <Button
-        android:id="@+id/Euskera"
+        android:id="@+id/registrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/iniciar_sesion"
@@ -24,7 +24,7 @@
         android:id="@+id/recordarContra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recordar Contraseña"
+        android:text="@string/recordarContra"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.929"
@@ -36,7 +36,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Introduce la contraseña"
+        android:text="@string/introduceContra"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
         android:layout_width="300dp"
         android:layout_height="116dp"
         android:ems="10"
-        android:hint="Ej: 19374381723527H"
+        android:hint="@string/ejemploContra"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,7 +74,7 @@
         android:layout_width="298dp"
         android:layout_height="108dp"
         android:ems="10"
-        android:hint="Ej: pedrito@gmail.com"
+        android:hint="@string/ejemploNombre"
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +87,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Introduce tu correo electronico"
+        android:text="@string/introduceNombre"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.543"
@@ -96,10 +96,10 @@
         app:layout_constraintVertical_bias="0.203" />
 
     <Button
-        android:id="@+id/registrarse"
+        android:id="@+id/registro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Registrarse"
+        android:text="@string/registrarse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.468"

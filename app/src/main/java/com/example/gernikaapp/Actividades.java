@@ -40,6 +40,16 @@ public class Actividades extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividades);
 
+        //-------------------------------------------------------------------------------------/
+
+
+
+
+        //-------------------------------------------------------------------------------------/
+
+
+
+
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE); //Inicia shared preferences
         Boolean primerInicio = prefs.getBoolean("primerInicio", true);
         if (primerInicio) {
@@ -93,13 +103,8 @@ public class Actividades extends AppCompatActivity {
                     int numero = abecedario.indexOf(primeraLetra) + 1;
 
                     //Meter el Municipio con su nombre y codigo de letra
-                    Municipio municipio = new Municipio(listaMunicipios.trim().toString(), numero);
-                    try {
-                        dao.insertarMunicipio(municipio);
-                    } catch (Exception e) {
-                        System.out.println("No Funciona");
-                    }
-
+                    Municipio municipio = new Municipio(listaMunicipios.trim(), numero);
+                    dao.insertarMunicipio(municipio);
                 }
             }
             scanner.close();
@@ -112,8 +117,8 @@ public class Actividades extends AppCompatActivity {
             Figura toro = new Figura(1,"Toro");
             Figura guerrero = new Figura(2,"Guerrero");
             Figura caballo = new Figura(3,"Caballo");
-            Figura hombre = new Figura(4,"Hombre");
-            Figura mujer = new Figura(5,"Mujer");
+            Figura hombre = new Figura(4,"Paloma");
+            Figura mujer = new Figura(5,"Madre");
 
 
 

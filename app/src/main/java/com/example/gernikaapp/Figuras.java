@@ -26,9 +26,6 @@ public class Figuras extends Fragment {
         // Required empty public constructor
     }
 
-
-
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
@@ -46,6 +43,7 @@ public class Figuras extends Fragment {
         TextView Madre =view.findViewById(R.id.madre);
         Button continuar = view.findViewById(R.id.continuarFiguras);
 
+
         TextView titulo =view.findViewById(R.id.Titulo);
         titulo.setVisibility(View.INVISIBLE);
         TextView Descripcion =view.findViewById(R.id.textoExplicacion);
@@ -58,23 +56,23 @@ public class Figuras extends Fragment {
                 });
 
         toro.setOnClickListener(v -> {
-            rellenarDatos(titulo,Descripcion,imagen,"Toro");
+            rellenarDatos(titulo,Descripcion,imagen,continuar,"Toro");
             imagen.setImageResource(R.drawable.toro);
         });
         Guerrero.setOnClickListener(v -> {
-            rellenarDatos(titulo,Descripcion, imagen, "Guerrero");
+            rellenarDatos(titulo,Descripcion, imagen,continuar, "Guerrero");
             imagen.setImageResource(R.drawable.guerrero);
         });
         Caballo.setOnClickListener(v -> {
-            rellenarDatos(titulo,Descripcion, imagen, "Caballo");
+            rellenarDatos(titulo,Descripcion, imagen,continuar, "Caballo");
             imagen.setImageResource(R.drawable.caballo);
         });
         Paloma.setOnClickListener(v -> {
-            rellenarDatos(titulo,Descripcion, imagen, "Paloma");
+            rellenarDatos(titulo,Descripcion, imagen,continuar, "Paloma");
             imagen.setImageResource(R.drawable.paloma);
         });
         Madre.setOnClickListener(v -> {
-            rellenarDatos(titulo,Descripcion, imagen, "Madre");
+            rellenarDatos(titulo,Descripcion, imagen,continuar, "Madre");
             imagen.setImageResource(R.drawable.madre);
         });
 
@@ -94,26 +92,24 @@ public class Figuras extends Fragment {
                 .commit();
     }
 
-    private void rellenarDatos(TextView titulo, TextView descripcion, ImageView imagen, String nombre) {
+    private void rellenarDatos(TextView titulo, TextView descripcion, ImageView imagen, Button continuar, String nombre) {
         DaoFigura dao= llamarBD();
-        Configuration configuration = getResources().getConfiguration();
-        String languageCode = configuration.getLocales().get(0).getLanguage();
+        String textoFigura="";
 
-        String textoFigura =dao.obtenerTexto(languageCode,nombre);
+            textoFigura =dao.obtenerTexto("esp",nombre);
 
         titulo.setVisibility(View.VISIBLE);
         descripcion.setVisibility(View.VISIBLE);
         imagen.setVisibility(View.VISIBLE);
         titulo.setText(nombre);
         descripcion.setText(textoFigura);
-
     }
 
     public DaoFigura llamarBD(){
         AppDatabase db = Room.databaseBuilder(
                         getContext().getApplicationContext(),
                         AppDatabase.class,
-                        "Gernika")
+                        "Gernikako")
                 .allowMainThreadQueries().build();
         DaoFigura dao=db.daoFigura();
         return dao;

@@ -68,25 +68,25 @@
             android:id="@+id/radioButtonIglesia1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Iglesia 1" />
+            android:text="@string/iglesia_1" />
 
         <RadioButton
             android:id="@+id/radioButtonIglesia2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Iglesia 2" />
+            android:text="@string/iglesia_2" />
 
         <RadioButton
             android:id="@+id/radioButtonIglesia3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Iglesia 3" />
+            android:text="@string/iglesia_3" />
 
         <RadioButton
             android:id="@+id/radioButtonIglesia4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Iglesia 4" />
+            android:text="@string/iglesia_4" />
 
     </RadioGroup>
 
@@ -168,7 +168,7 @@
         android:layout_width="339dp"
         android:layout_height="101dp"
         android:layout_marginTop="24dp"
-        android:text="Intenta adivinar en que iglesia estás ahora. Mira por los alrededores y clica sobre la iglesia correspondiente en los círculos de abajo."
+        android:text="@string/explicacionFoto"
         android:textFontWeight="30"
         android:textSize="50px"
         android:textStyle="italic"

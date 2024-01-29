@@ -106,7 +106,7 @@
         android:layout_height="43dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Ejemplo: 33"
+        android:hint="@string/ejemploBunker"
         android:inputType="number"
         android:shadowColor="@color/black"
         android:textColor="@color/black"
