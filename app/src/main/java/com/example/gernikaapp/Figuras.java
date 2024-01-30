@@ -99,7 +99,7 @@ public class Figuras extends Fragment {
         AppDatabase db = Room.databaseBuilder(
                         getContext().getApplicationContext(),
                         AppDatabase.class,
-                        "Gernikako")
+                        "DatuBase")
                 .allowMainThreadQueries().build();
         DaoFigura dao=db.daoFigura();
         return dao;

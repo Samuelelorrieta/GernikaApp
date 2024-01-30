@@ -109,7 +109,7 @@ public class Registro extends Fragment {
         AppDatabase db = Room.databaseBuilder(
                         getContext().getApplicationContext(),
                         AppDatabase.class,
-                        "Gernikaren")
+                        "DatuBase")
                 .allowMainThreadQueries().build();
         Usuario registrar = new Usuario(nombre,contra,checked);
         db.daoUsuario().insertarUsuario(registrar);
@@ -119,7 +119,7 @@ public class Registro extends Fragment {
         AppDatabase db = Room.databaseBuilder(
                         getContext().getApplicationContext(),
                         AppDatabase.class,
-                        "Gernikaren")
+                        "DatuBase")
                 .allowMainThreadQueries().build();
         Usuario usuario=db.daoUsuario().obtenerUsuarioNombre(nombre);
             Bundle bundle = new Bundle();

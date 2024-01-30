@@ -207,7 +207,7 @@ public class RuletaFragment extends Fragment {
         AppDatabase db = Room.databaseBuilder(
                         getContext().getApplicationContext(),
                         AppDatabase.class,
-                        "Gernika")
+                        "DatuBase")
                 .allowMainThreadQueries().build();
 
         DaoMunicipio dao = db.daoMunicipio();

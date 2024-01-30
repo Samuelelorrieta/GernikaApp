@@ -92,7 +92,7 @@ public class IniciarSesion extends Fragment {
         AppDatabase db = Room.databaseBuilder(
                         getContext().getApplicationContext(),
                         AppDatabase.class,
-                        "Gernikaren")
+                        "DatuBase")
                 .allowMainThreadQueries().build();
         Usuario usuario = db.daoUsuario().obtenerUsuarioNombre(nombre);
         if(usuario.guardarContra)
@@ -129,7 +129,7 @@ public class IniciarSesion extends Fragment {
             AppDatabase db = Room.databaseBuilder(
                             getContext().getApplicationContext(),
                             AppDatabase.class,
-                            "Gernikaren")
+                            "DatuBase")
                     .allowMainThreadQueries().build();
             Usuario usuario = db.daoUsuario().obtenerUsuarioNombre(nombre);
             Bundle bundle = new Bundle();

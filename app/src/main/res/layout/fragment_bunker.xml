@@ -78,14 +78,13 @@
         android:text="@string/refugio_antiaereo"
         android:textColor="@color/black"
         android:textColorHighlight="@color/black"
-        android:textSize="20sp"
-        android:textStyle="italic"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.022" />
 
     <TextView
         android:id="@+id/pregunta"

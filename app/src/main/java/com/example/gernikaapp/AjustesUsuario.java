@@ -1,31 +1,27 @@
 package com.example.gernikaapp;
 
+import static androidx.core.app.ActivityCompat.recreate;
 import android.content.res.Configuration;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.room.Room;
-
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.example.gernikaapp.BD.AppDatabase;
-import com.example.gernikaapp.BD.Usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.RadioButton;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AjustesUsuario#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.gernikaapp.BD.AppDatabase;
+
+import java.util.Objects;
+
 public class AjustesUsuario extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -62,8 +58,10 @@ public class AjustesUsuario extends Fragment {
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Button continuar =view.findViewById(R.id.continuar);
-        Button euskera =view.findViewById(R.id.euskera);
-        Button castellano =view.findViewById(R.id.castellano);
+
+        RadioButton euskera = view.findViewById(R.id.radioEuskera);
+        RadioButton castellano = view.findViewById(R.id.radioCastellano);
+
         Button borrar =view.findViewById(R.id.borrar);
         EditText contra = view.findViewById(R.id.nombre);
 
@@ -74,15 +72,16 @@ public class AjustesUsuario extends Fragment {
         }
 
         continuar.setOnClickListener(v -> {
-            if(!(contra.getText().toString().equals("")))
-                actualizarContra(contra);
-            cambiarFragment(new MapaFragment());
-        });
-        euskera.setOnClickListener(v -> {
-            cambiarIdioma("eu");
-        });
-        castellano.setOnClickListener(v -> {
-            cambiarIdioma("");
+            if(castellano.isChecked()||euskera.isChecked())
+            {
+                String idioma="";
+                if(euskera.isChecked())
+                    idioma="eu";
+                if(!(contra.getText().toString().equals("")))
+                    actualizarContra(contra);
+                cambiarIdioma(idioma);
+                cambiarFragment(new MapaFragment());
+            }
         });
         borrar.setOnClickListener(v -> {
             borrarUsuario();
@@ -119,10 +118,9 @@ public class AjustesUsuario extends Fragment {
                                         AppDatabase db = Room.databaseBuilder(
                                                         getContext().getApplicationContext(),
                                                         AppDatabase.class,
-                                                        "Gernikaren")
+                                                        "DatuBase")
                                                 .allowMainThreadQueries().build();
                                         db.daoUsuario().actualizarContra(contra.getText().toString(),id);
-                                        cambiarFragment(new MapaFragment());
                                     } else {
                                     }
                                 }
@@ -143,7 +141,7 @@ public class AjustesUsuario extends Fragment {
                                     AppDatabase db = Room.databaseBuilder(
                                                     getContext().getApplicationContext(),
                                                     AppDatabase.class,
-                                                    "Gernikaren")
+                                                    "DatuBase")
                                             .allowMainThreadQueries().build();
                                     db.daoUsuario().borrarUsuario(id);
                                 } else {
