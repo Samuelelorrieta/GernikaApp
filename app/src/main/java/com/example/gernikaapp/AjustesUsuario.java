@@ -1,34 +1,34 @@
 package com.example.gernikaapp;
 
+import static androidx.core.app.ActivityCompat.recreate;
 import android.content.res.Configuration;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
+import androidx.room.Room;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.RadioButton;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AjustesUsuario#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.gernikaapp.BD.AppDatabase;
+
+import java.util.Objects;
+
 public class AjustesUsuario extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    int id=0;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
     // TODO: Rename and change types of parameters
@@ -58,20 +58,30 @@ public class AjustesUsuario extends Fragment {
     }
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Button continuar =view.findViewById(R.id.continuar);
-        Button euskera =view.findViewById(R.id.euskera);
-        Button castellano =view.findViewById(R.id.castellano);
+
+        RadioButton euskera = view.findViewById(R.id.radioEuskera);
+        RadioButton castellano = view.findViewById(R.id.radioCastellano);
+
         Button borrar =view.findViewById(R.id.borrar);
         EditText contra = view.findViewById(R.id.nombre);
+
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            //Recogida de siguiente punto para el marker
+            id = bundle.getInt("idUsuario", 0);
+        }
+
         continuar.setOnClickListener(v -> {
-            if(!(contra.getText().toString().equals("")))
-                actualizarContra(contra);
-            cambiarFragment();
-        });
-        euskera.setOnClickListener(v -> {
-            cambiarIdioma("eu");
-        });
-        castellano.setOnClickListener(v -> {
-            cambiarIdioma("");
+            if(castellano.isChecked()||euskera.isChecked())
+            {
+                String idioma="";
+                if(euskera.isChecked())
+                    idioma="eu";
+                if(!(contra.getText().toString().equals("")))
+                    actualizarContra(contra);
+                cambiarIdioma(idioma);
+                cambiarFragment(new MapaFragment());
+            }
         });
         borrar.setOnClickListener(v -> {
             borrarUsuario();
@@ -105,7 +115,12 @@ public class AjustesUsuario extends Fragment {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-
+                                        AppDatabase db = Room.databaseBuilder(
+                                                        getContext().getApplicationContext(),
+                                                        AppDatabase.class,
+                                                        "DatuBase")
+                                                .allowMainThreadQueries().build();
+                                        db.daoUsuario().actualizarContra(contra.getText().toString(),id);
                                     } else {
                                     }
                                 }
@@ -116,18 +131,28 @@ public class AjustesUsuario extends Fragment {
             }
         }
             public void borrarUsuario(){
+
                 user.delete() //Se borra
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-
+                                    cambiarFragment(new IniciarSesion());
+                                    AppDatabase db = Room.databaseBuilder(
+                                                    getContext().getApplicationContext(),
+                                                    AppDatabase.class,
+                                                    "DatuBase")
+                                            .allowMainThreadQueries().build();
+                                    db.daoUsuario().borrarUsuario(id);
                                 } else {
                                 }
                             }
                         });
             }
-            public void cambiarFragment(){
-
+            public void cambiarFragment(Fragment fragment){
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.contenedorFragment, new MapaFragment())
+                        .addToBackStack(null)
+                        .commit();
             }
         }

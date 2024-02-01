@@ -3,7 +3,7 @@
     <string name="btn_continuar">Jarraitu</string>
     <string name="texto_bienvenida">Ezagutu Gernikako sekretuak</string>
 
-    <!--2 Gunea -->
+    <!--Bunker -->
     <string name="textoProfe1">Espainian altxamendu militarraren eman zen eta otxandion eta bilbon gertaturiko erasoen ondorioz gernikan babesleku militar hau eraiki zen.</string>
     <string name="textoProfe2">Talleres de Gernika lantegiak (TdG) bi babesleku eraiki zituen 1936ko irailean, bertako langileei aterpea emateko:</string>
     <string name="textoProfe3">- Lehena Astra ren babesleku gisa ezagutzen da gaur egun. Astra 400 Purua pistola enblematikotik dator izen hori.</string>
@@ -45,6 +45,38 @@
     <string name="btn_comprobar">Konprobatu</string>
     <string name="lbl_descripcion_cancion">Bete abestiaren hutsuneak</string>
     <string name="lbl_descripcion_cancion2">Gernikako Arbolaren audioa entzuten hasiko da eta falta diren hutsuneak bete behar dituzu. Audioa 3 aldiz erreproduzituko da, zorte on.</string>
-    <string name="titulo_puzzle">Resuelve el Puzzle</string>
-    <string name="registro">Registro</string>
+
+    <string name="registro">Erregistroa</string>
+    <string name="cambiarContra">Pasahitza Aldatu</string>
+    <string name="introduceContra">Pasahitza eman</string>
+    <string name="euskera">Euskera</string>
+    <string name="borrarCuenta">Kontua Ezabatu</string>
+    <string name="ejemploBunker">Adibidez: 33</string>
+    <string name="comprobar">Konprobatu</string>
+    <string name="tituloFiguras">Gernikako irudiak</string>
+    <string name="seleccionFigura">Irudi bat hautatu</string>
+
+    <string name="toro">Zezena</string>
+    <string name="guerrero">Gudari Hilda</string>
+    <string name="caballo">Zaldia</string>
+    <string name="paloma">Usoa</string>
+    <string name="madre">Hildako semea duen ama</string>
+    <string name="explicacionFoto">Saiatu asmatzen zein elizatan zauden orain. Begiratu inguruan eta klikatu beheko zirkuluetan dagokion elizaren gainean.</string>
+    <string name="iglesia_1">Eliza 1</string>
+    <string name="iglesia_2">Eliza 2</string>
+    <string name="iglesia_3">Eliza 3</string>
+    <string name="iglesia_4">Eliza 4</string>
+    <string name="explicacionFoto2">Orain egin aurreko minijokoan bezala. Begiratu inguruan eta klikatu beheko zirkuluetan dagokion elizaren gainean.</string>
+    <string name="tituloGernika">Gernikako Koadroa</string>
+    <string name="explicionVideo">Jarraian, Gernikako koadroari buruzko bideoa ikusi behar duzue. Bideoa amaitutakoan, honen azpian dagoen botoia sakatu behar duzue Gernikako koadroari buruzko informazio gehiago jaso ahal izateko.</string>
+    <string name="masInformacion">Informazio Gehiago</string>
+    <string name="introduceNombre">Sartu zure posta elektronikoa</string>
+    <string name="ejemploNombre">Ad: pedrito@gmail.com</string>
+    <string name="ejemploContra">Ad: 19374381723527H</string>
+    <string name="recordarContra">Pasahitza Gogoratu</string>
+    <string name="registrarse">Erregistratu</string>
+    <string name="inicioSesion">Saioaren Hasiera\n</string>
+    <string name="iniciar_sesion">Hasi Saioa</string>
+    <string name="castellano">Gaztelania</string>
+    <string name="ajustesUsuario">Kontuaren ezarpenak</string>
 </resources>

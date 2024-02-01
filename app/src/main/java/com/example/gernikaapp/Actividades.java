@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Room;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
@@ -13,6 +14,8 @@ import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.example.gernikaapp.BD.AppDatabase;
+import com.example.gernikaapp.BD.DaoFigura;
+import com.example.gernikaapp.BD.DaoUsuario;
 import com.example.gernikaapp.BD.Figura;
 import com.example.gernikaapp.BD.JuegoRuleta.DaoMunicipio;
 import com.example.gernikaapp.BD.JuegoRuleta.Letra;
@@ -35,25 +38,37 @@ public class Actividades extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private ArrayList<Ubicaciones> listaUbicaciones;
 
+    @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividades);
 
+        //-------------------------------------------------------------------------------------/
+
+
+
+
+        //-------------------------------------------------------------------------------------/
+
+
+
+
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE); //Inicia shared preferences
-        Boolean primerInicio = prefs.getBoolean("primerInicio", true);
+        Boolean primerInicio = prefs.getBoolean("Inicio", true);
         if (primerInicio) {
 
             //Cración de BD
             AppDatabase db = Room.databaseBuilder(
                             getApplicationContext(),
                             AppDatabase.class,
-                            "Gernika")
+                            "DatuBase2")
                     .allowMainThreadQueries().build();
 
             //LLamada del DaoMunicipio para hacer el instar de municipios y las letras
             DaoMunicipio dao = db.daoMunicipio();
 
+            db.clearAllTables();
 
             //Insert de Letras
             String abecedario = "ABDEFGHIJKLMNOPRSTUXZ";
@@ -93,29 +108,19 @@ public class Actividades extends AppCompatActivity {
                     int numero = abecedario.indexOf(primeraLetra) + 1;
 
                     //Meter el Municipio con su nombre y codigo de letra
-                    Municipio municipio = new Municipio(listaMunicipios.trim().toString(), numero);
-                    try {
-                        dao.insertarMunicipio(municipio);
-                    } catch (Exception e) {
-                        System.out.println("No Funciona");
-                    }
-
+                    Municipio municipio = new Municipio(listaMunicipios.trim(), numero);
+                    dao.insertarMunicipio(municipio);
                 }
             }
             scanner.close();
-
-
-
 
             //Meter todos los inserts
 
             Figura toro = new Figura(1,"Toro");
             Figura guerrero = new Figura(2,"Guerrero");
             Figura caballo = new Figura(3,"Caballo");
-            Figura hombre = new Figura(4,"Hombre");
-            Figura mujer = new Figura(5,"Mujer");
-
-
+            Figura hombre = new Figura(4,"Paloma");
+            Figura mujer = new Figura(5,"Madre");
 
             Texto toroEsp = new Texto("Aparece en la izquierda del cuadro, con el cuerpo oscuro y la cabeza blanca. Este voltea y parece mostrarse impasible ante lo que ocurre a su alrededor.","esp",1);
             Texto guerreroEsp = new Texto("En realidad, sólo aparecen los restos de la cabeza, brazos. Un brazo tiene la mano extendida. El otro brazo sostiene una espada rota y una flor, que puede interpretarse como un rayo de esperanza dentro de ese panorama descorazonador.","esp",2);
@@ -123,16 +128,36 @@ public class Actividades extends AppCompatActivity {
             Texto hombreEsp = new Texto("Situada a la izquierda, no resulta visible a simple vista. Tiene un ala caída y la cabeza vuelta hacia arriba, con el pico abierto. Generalmente se ha considerado un símbolo de la paz rota.","esp",4);
             Texto mujerEsp = new Texto("Se sitúa a la izquierda, con la cara vuelta hacia el cielo en un ademán o grito de dolor. Sostiene en sus brazos a su hijo ya muerto. Según la muy discutida interpretación de Juan Larrea, el grupo madre-hijo simbolizaría a la ciudad de Madrid, sitiada por las tropas de Franco.","esp",5);
 
-
-
             Texto toroEus = new Texto("Koadroaren ezkerrean agertzen da, gorputza ilun eta burua zuri duela. Itzulipurdika ari da, eta inguruan gertatzen denaren aurrean soraio dagoela dirudi.","eus",1);
             Texto guerreroEus = new Texto("Egia esan, buruaren hondarrak baino ez dira agertzen, besoak. Beso batek eskua luzatuta dauka. Beste besoak ezpata hautsi bat eta lore bat eusten ditu, itxaropen-izpi bat bezala interpreta daitekeena panorama bihozgabe horren barruan.","eus",2);
             Texto caballoEus = new Texto("Konposizioaren erdian dago. Aurreko hanketako bat aurreratzen du orekan mantentzeko, erortzeko zorian dagoela ematen baitu. Ezkerreko saihetsean zauri bertikal bat irekitzen da eta, gainera, lantza batek zeharkatzen du.","eus",3);
             Texto hombreEus = new Texto("Ezkerrean dago, eta ez da begi hutsez ikusten. Hegala erorita dauka eta burua gorantz jiratuta, mokoa irekita. Oro har, hautsitako bakearen sinbolotzat hartu izan da.","eus",4);
             Texto mujerEus = new Texto("Ezkerrean dago, aurpegia zerurantz begira, oinazezko keinu edo oihu batean. Semeari besoetan eusten dio. Juan Larrearen interpretazio eztabaidatuaren arabera, ama-semeen taldeak Madril hiria sinbolizatuko luke, Francoren tropek setiatua.","eus",5);
 
+            DaoFigura usur = db.daoFigura();
+
+            usur.insertarFigura(toro);
+            usur.insertarTexto(toroEus);
+            usur.insertarTexto(toroEsp);
+
+            usur.insertarFigura(guerrero);
+            usur.insertarTexto(guerreroEsp);
+            usur.insertarTexto(guerreroEus);
+
+            usur.insertarFigura(caballo);
+            usur.insertarTexto(caballoEus);
+            usur.insertarTexto(caballoEsp);
+
+            usur.insertarFigura(hombre);
+            usur.insertarTexto(hombreEsp);
+            usur.insertarTexto(hombreEus);
+
+            usur.insertarFigura(mujer);
+            usur.insertarTexto(mujerEsp);
+            usur.insertarTexto(hombreEsp);
+
             SharedPreferences.Editor editor = prefs.edit(); // Crea el editor
-            editor.putBoolean("primerInicio",false);
+            editor.putBoolean("Inicio",false);
             editor.commit(); // Guarda los cambios
         }
 
@@ -144,7 +169,7 @@ public class Actividades extends AppCompatActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         // Reemplaza el contenido del contenedor con el Fragment
-        transaction.replace(R.id.contenedorFragment, new RuletaFragment());
+        transaction.replace(R.id.contenedorFragment, new IniciarSesion());
 
         // Confirma la transacción
         transaction.commit();

@@ -2,8 +2,10 @@
     <string name="app_name">GernikaApp</string>
     <string name="btn_continuar">Continuar</string>
     <string name="texto_bienvenida">Descubre los secretos de Gernika</string>
+    <string name="btn_comprobar">Comprobar</string>
+    <string name="galdera">Pregunta</string>
 
-    <!--2 Gunea -->
+    <!--Bunker -->
     <string name="textoProfe1">En España se dio el alzamiento militar y tras los ataques de Otxandio y Bilbao se construyó este refugio militar en Gernika.</string>
     <string name="textoProfe2">Talleres de Gernika (TdG) construyó dos refugios en septiembre de 1936 para dar cobijo a sus trabajadores:</string>
     <string name="textoProfe3">"- El primero es conocido hoy como refugio del Astra. Ese nombre proviene de la emblemática pistola Astra 400 Purua. "</string>
@@ -32,24 +34,61 @@
 
     <string name="test3">"¿Cómo se llama la tradición que va cantando de iglesia en iglesia en Nochebuena? "</string>
     <string name="resp31">"Villancico "</string>
+    <string name="resp32">Coros-Cristianos</string>
+    <string name="resp33">Nanas</string>
+
     <string name="felicidades">¡Felicidades!</string>
 
+    <!-- InicioSesion/Registro -->
+    <string name="introduceNombre">Introduce tu correo electronico</string>
+    <string name="ejemploNombre">Ej: pedrito@gmail.com</string>
+    <string name="ejemploContra">Ej: 19374381723527H</string>
+    <string name="recordarContra">Recordar Contraseña</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="registro">Registro</string>
+    <string name="inicioSesion">Inicio de Sesion\n</string>
+    <string name="iniciar_sesion">Iniciar Sesion</string>
+    <string name="cambiarContra">Cambiar contraseña</string>
+    <string name="introduceContra">Introduce la contraseña</string>
+    <string name="castellano">Castellano</string>
+    <string name="euskera">Euskera</string>
+    <string name="borrarCuenta">Borrar Cuenta</string>
+    <string name="ejemploBunker">Ejemplo: 33</string>
+    <string name="comprobar">Comprobar</string>
+
+    <!-- Cuadro Gernika -->
+    <string name="tituloGernika">Cuadro de Gernika</string>
+    <string name="explicionVideo">A continuación, tenéis que ver el video sobre el cuadro de Gernika. Una vez terminado el video, tenéis que pulsar el botón que está debajo de este para poder recibir más información sobre el cuadro de Gernika.</string>
+    <string name="masInformacion">Mas Información</string>
+
+    <string name="tituloFiguras">Figuras del Gernika</string>
+    <string name="seleccionFigura">Selecciona una figura</string>
+    <string name="toro">Toro</string>
+    <string name="guerrero">Guerrero Muerto</string>
+    <string name="caballo">Caballo</string>
+    <string name="paloma">Paloma</string>
+    <string name="madre">Madre con hijo muerto</string>
+
+    <!-- Iglesias -->
+
+    <string name="explicacionFoto">Intenta adivinar en que iglesia estás ahora. Mira por los alrededores y clica sobre la iglesia correspondiente en los círculos de abajo.</string>
+    <string name="explicacionFoto2">Ahora haz lo mismo que en el minijuego anterior. Mira por los alrededores y clica sobre la iglesia correspondiente en los círculos de abajo.</string>
+    <string name="iglesia_1">Iglesia 1</string>
+    <string name="iglesia_2">Iglesia 2</string>
+    <string name="iglesia_3">Iglesia 3</string>
+    <string name="iglesia_4">Iglesia 4</string>
+
+    <!-- Ruleta -->
     <string name="lbl_Nombre_ruleta">RULETA</string>
     <string name="lbl_Ejemplo">Ejemplo: J</string>
     <string name="txt_pueblo_ciudad_2"><![CDATA[Pueblo/Ciudad --> 2]]></string>
     <string name="txt_pueblo_ciudad_3"><![CDATA[Pueblo/Ciudad --> 3]]></string>
-    <string name="btn_comprobar">Comprobar</string>
-    <string name="galdera">Pregunta</string>
-    <string name="resp32">Coros-Cristianos</string>
-    <string name="resp33">Nanas</string>
     <string name="lbl_Descripcion">"Clica sobre la ruleta y espera a que salga una letra. Con la letra que salga tendrás que escribir 3 pueblos/ciudades. Tu letra es: "</string>
     <string name="txt_pueblo_ciudad_1"><![CDATA[Pueblo/Ciudad --> 1]]></string>
+
+    <!-- Cancion -->
     <string name="lbl_descripcion_cancion">Rellena los huecos de la canción</string>
     <string name="lbl_descripcion_cancion2">Empezará a sonar el audio de Gernikako Arbola y tienes que rellenar los huecos que faltan. El audio se reproducirá 3 veces, buena suerte.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="titulo_puzzle">Resuelve el Puzzle</string>
-    <string name="registro">Registro</string>
-    <string name="inicioSesion">Inicio de Sesion\n</string>
-    <string name="iniciar_sesion">Iniciar Sesion</string>
+    <string name="ajustesUsuario">Ajustes de Usuario</string>
+    <string name="cambiar_idioma">Cambiar Idioma</string>
 </resources>

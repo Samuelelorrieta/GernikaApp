@@ -45,7 +45,7 @@ public class Registro extends Fragment {
     public static Registro newInstance(String param1, String param2) {
         Registro fragment = new Registro();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM1, param1);//ola
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
@@ -62,24 +62,18 @@ public class Registro extends Fragment {
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        Button registro = view.findViewById(R.id.Euskera);
+        Button registro = view.findViewById(R.id.registrar);
         EditText nombre = view.findViewById(R.id.nombre);
         EditText contra = view.findViewById(R.id.contra);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         CheckBox check =  view.findViewById(R.id.checkBox);
         textoError =view.findViewById(R.id.textoError);
-        TextView inicio =view.findViewById(R.id.iniciar);
         registro.setOnClickListener(v -> {
            registrarUsuario(nombre,contra,mAuth,check);
             if(nombre.getText().equals("")||contra.getText().equals(""))
                 textoError.setText("Error, rellena los campos");
         });
-        inicio.setOnClickListener(v -> {
-            cambioPantalla(new IniciarSesion());
-        });
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -98,6 +92,7 @@ public class Registro extends Fragment {
                                     public void run() {
                                        // cambioPantalla(new MapaFragment());
                                         registroBD(correo.getText().toString(), contraseña.getText().toString(),check.isChecked());
+                                        cambioPantalla(new AjustesUsuario(),correo.getText().toString());
                                     }
                                 }).start();
                             } else {
@@ -114,14 +109,22 @@ public class Registro extends Fragment {
         AppDatabase db = Room.databaseBuilder(
                         getContext().getApplicationContext(),
                         AppDatabase.class,
-                        "Gernika")
+                        "DatuBase")
                 .allowMainThreadQueries().build();
         Usuario registrar = new Usuario(nombre,contra,checked);
         db.daoUsuario().insertarUsuario(registrar);
     }
 
-
-    private void cambioPantalla(Fragment fragment){
+    private void cambioPantalla(Fragment fragment,String nombre){
+        AppDatabase db = Room.databaseBuilder(
+                        getContext().getApplicationContext(),
+                        AppDatabase.class,
+                        "DatuBase")
+                .allowMainThreadQueries().build();
+        Usuario usuario=db.daoUsuario().obtenerUsuarioNombre(nombre);
+            Bundle bundle = new Bundle();
+            bundle.putInt("idUsuario", usuario.id);
+           fragment.setArguments(bundle);
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contenedorFragment, fragment)
                 .addToBackStack(null)
