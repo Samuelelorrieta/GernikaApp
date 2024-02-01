@@ -16,8 +16,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private double[] lat = new double[]{43.31502960219348, 43.3120758198961, 43.30888911048448, 43.28397879770591,43.31323892537951, 43.3130240623675};
-    private double[] lon = new double[]{-2.6785832178308917, -2.676278594468019, -2.6833587603397713, -2.9645066850317825,-2.6795759699238295, -2.679950266821695};
+    private double[] lat = new double[]{43.31502960219348, 43.3120758198961, 43.30888911048448, 43.314191672131216,43.31323892537951, 43.3130240623675};
+    private double[] lon = new double[]{-2.6785832178308917, -2.676278594468019, -2.6833587603397713, -2.678853463532133,-2.6795759699238295, -2.679950266821695};
     private String[]  nombreUbicacion = new String[]{"Museo de la Paz de Gernika", "Búnker", "Iglesia San Francisco", "Iglesia Andra Mari","Casa de Juntas", "Arbol de Gernika"};
 
     @Override

@@ -80,8 +80,8 @@ public class MapaFragment extends Fragment {
         ubicacion = listaUbicaciones.get(queFragmentVoy).getNombreUbicacion().toString();
 
         //Inicializamos el GeoPoint con las coordenadas necesarias
-        //geoPoint = new GeoPoint(lat, lon); // Coordenadas del marcador
-        geoPoint = new GeoPoint( 43.2837756904145, -2.964419127575523); // Coordenadas del marcador
+        geoPoint = new GeoPoint(lat, lon); // Coordenadas del marcador
+        //geoPoint = new GeoPoint( 43.2837756904145, -2.964419127575523); // Coordenadas del marcador (Clase)
 
 
 
