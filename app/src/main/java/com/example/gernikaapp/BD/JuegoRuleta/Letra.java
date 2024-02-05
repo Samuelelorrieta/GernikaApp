@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Letra {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey()
     @NonNull
     @ColumnInfo(name = "idLetra")
     public int idLetra;
@@ -17,7 +17,9 @@ public class Letra {
     @ColumnInfo(name = "nombre")
     public String nombre;
 
-    public Letra(String nombre){
+    public Letra(int idLetra, String nombre){
+
+        this.idLetra=idLetra;
         this.nombre=nombre;
     }
 

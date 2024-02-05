@@ -78,7 +78,11 @@ public class RuletaFragment extends Fragment {
         //Invisible los Tiks
         flecha.setOnClickListener(v -> {
             if (!gira) {
-                posicionRadianes = new Random().nextInt(21);
+                // Obtener una posición aleatoria que no sea F, N o R
+                do {
+                    posicionRadianes = new Random().nextInt(letrasRuleta.length);
+                } while (letrasRuleta[posicionRadianes].equals("F") || letrasRuleta[posicionRadianes].equals("N") || letrasRuleta[posicionRadianes].equals("R"));
+
                 gira = true;
                 mediaPlayer.start();
                 startSpin();
@@ -134,8 +138,6 @@ public class RuletaFragment extends Fragment {
                 txt_Pueblo3.setEnabled(true);
                 btn_Comprobar.setVisibility(View.VISIBLE);
 
-                obtenerMunicipiosPorLetra();
-
             } else {
                 startSpin();
             }
@@ -166,12 +168,12 @@ public class RuletaFragment extends Fragment {
             AppDatabase db = Room.databaseBuilder(
                             getContext().getApplicationContext(),
                             AppDatabase.class,
-                            "Gernika")
+                            "BD_Prueba_2.2")
                     .allowMainThreadQueries().build();
 
             DaoMunicipio dao = db.daoMunicipio();
 
-            List<Municipio> municipios = (List<Municipio>) dao.obtenerMunicipioPorIdLetra(posicionRadianes + 1);
+            List<Municipio> municipios = dao.obtenerMunicipioPorIdLetra(posicionRadianes + 1);
 
             for (Municipio municipio : municipios) {
                 System.out.println(municipio.nombre + " " + municipio.idLetra);
@@ -194,7 +196,7 @@ public class RuletaFragment extends Fragment {
                 }
             }
         } else {
-            Toast.makeText(requireContext(), "Esta prohibido usar repetir nombres", Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), "Esta prohibido repetir nombres", Toast.LENGTH_SHORT).show();
         }
         return todoCorrecto;
     }

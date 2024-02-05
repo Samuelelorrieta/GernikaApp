@@ -2,6 +2,7 @@ package com.example.gernikaapp.BD;
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
+import com.example.gernikaapp.BD.JuegoRuleta.DaoLetra;
 import com.example.gernikaapp.BD.JuegoRuleta.DaoMunicipio;
 import com.example.gernikaapp.BD.JuegoRuleta.Letra;
 import com.example.gernikaapp.BD.JuegoRuleta.Municipio;
@@ -13,7 +14,7 @@ import com.example.gernikaapp.BD.JuegoRuleta.Municipio;
 public abstract class AppDatabase extends RoomDatabase {
     public abstract DaoUsuario daoUsuario();
     public abstract DaoFigura daoFigura();
-
     public abstract DaoMunicipio daoMunicipio();
+    public abstract DaoLetra daoLetra();
 
 }

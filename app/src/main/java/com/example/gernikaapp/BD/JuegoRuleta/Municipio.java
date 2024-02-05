@@ -16,7 +16,6 @@ public class Municipio {
 
     @PrimaryKey(autoGenerate = true)
     @NonNull
-    @ColumnInfo(name = "idMunicipio")
     public int idMunicipio;
     @NonNull
     @ColumnInfo(name = "nombre")
