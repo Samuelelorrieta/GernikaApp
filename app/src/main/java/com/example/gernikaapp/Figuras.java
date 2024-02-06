@@ -1,5 +1,7 @@
 package com.example.gernikaapp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
@@ -21,6 +23,7 @@ import com.example.gernikaapp.BD.DaoFigura;
 public class Figuras extends Fragment {
 
     private int queFragmentVoy=1;
+    AppDatabase db;
 
     public Figuras() {
         // Required empty public constructor
@@ -28,22 +31,25 @@ public class Figuras extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        db = AppDatabase.getDatabase(getContext());
 
         Bundle bundle = new Bundle();
         if(bundle!=null)
         {
-            queFragmentVoy=bundle.getInt("queFragmentVoy",1);
+            queFragmentVoy=bundle.getInt("queFragmentVoy",1); //Recoge el valor del bundle
         }
 
-
+        //Imagenes de figura
         ImageView toro =view.findViewById(R.id.toro);
         ImageView Guerrero =view.findViewById(R.id.guerrero);
         ImageView Caballo =view.findViewById(R.id.caballo);
         ImageView Paloma =view.findViewById(R.id.paloma);
         ImageView Madre =view.findViewById(R.id.madre);
+
+
         Button continuar = view.findViewById(R.id.continuarFiguras);
 
-
+        //Informacion Figuras
         TextView titulo =view.findViewById(R.id.Titulo);
         TextView Descripcion =view.findViewById(R.id.textoExplicacion);
 
@@ -77,32 +83,22 @@ public class Figuras extends Fragment {
 
     private void cambiarFragment() {
         Bundle bundle = new Bundle();
-        bundle.putInt("queFragmentVoy",queFragmentVoy);
+        bundle.putInt("queFragmentVoy",queFragmentVoy); //Pone la informacion en el bundle
         MapaFragment mapaFragment = new MapaFragment();
         mapaFragment.setArguments(bundle);
 
-        getActivity().getSupportFragmentManager().beginTransaction()
+        getActivity().getSupportFragmentManager().beginTransaction() //Realiza la transaccion
                 .replace(R.id.contenedorFragment, mapaFragment)
-
                 .addToBackStack(null)
                 .commit();
     }
 
     private void rellenarDatos(TextView titulo, TextView descripcion, String nombre) {
-        DaoFigura dao= llamarBD();
-        String textoFigura =dao.obtenerTexto("esp",nombre);
+        SharedPreferences prefs = requireContext().getSharedPreferences("Gernika", Context.MODE_PRIVATE);
+        String idioma = prefs.getString("idiomas", "esp");
+        String textoFigura =db.daoFigura().obtenerTexto(idioma,nombre); //Recoge en la BD
         titulo.setText(nombre);
         descripcion.setText(textoFigura);
-    }
-
-    public DaoFigura llamarBD(){
-        AppDatabase db = Room.databaseBuilder(
-                        getContext().getApplicationContext(),
-                        AppDatabase.class,
-                        "DatuBase")
-                .allowMainThreadQueries().build();
-        DaoFigura dao=db.daoFigura();
-        return dao;
     }
 
     @Override

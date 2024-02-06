@@ -79,4 +79,6 @@
     <string name="iniciar_sesion">Hasi Saioa</string>
     <string name="castellano">Gaztelania</string>
     <string name="ajustesUsuario">Kontuaren ezarpenak</string>
+    <string name="cambiar_idioma">Hizkuntza aldatu</string>
+    <string name="Destino">Helmugara iritsi zara;)</string>
 </resources>

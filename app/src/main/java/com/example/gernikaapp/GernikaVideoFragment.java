@@ -35,19 +35,19 @@ public class GernikaVideoFragment extends Fragment {
 
         // Iniciar el video y sus controles
         VideoView videoView = view.findViewById(R.id.videoViewE);
-       // videoView.setVideoPath("android.resource://" + requireActivity().getPackageName() + "/" + R.raw.videocuadro);
+
+        // videoView.setVideoPath("android.resource://" + requireActivity().getPackageName() + "/" + R.raw.videocuadro); //Ruta del video
         MediaController mediaController = new MediaController(requireContext());
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);
 
-        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { //En cuento este preparado el video
             @Override
             public void onPrepared(MediaPlayer mediaPlayer) {
-                mediaPlayer.setVolume(1f, 1f);
+                mediaPlayer.setVolume(1f, 1f); //Se ejecuta
             }
         });
 
-        // Iniciar el juego
         buttonJuego.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

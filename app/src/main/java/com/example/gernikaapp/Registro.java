@@ -21,57 +21,37 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Registro#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class Registro extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     TextView textoError;
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    AppDatabase db;
 
     public Registro() {
 
     }
 
-    public static Registro newInstance(String param1, String param2) {
-        Registro fragment = new Registro();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);//ola
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-
-        }
-    }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+        //Recoge la instancia de AppDatabase
+        db = AppDatabase.getDatabase(getContext());
+
+        //Registra el usuario en Firebase y BD
         Button registro = view.findViewById(R.id.registrar);
+
+        //Campos de registro9
         EditText nombre = view.findViewById(R.id.nombre);
         EditText contra = view.findViewById(R.id.contra);
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         CheckBox check =  view.findViewById(R.id.checkBox);
+
         textoError =view.findViewById(R.id.textoError);
+
         registro.setOnClickListener(v -> {
-           registrarUsuario(nombre,contra,mAuth,check);
-            if(nombre.getText().equals("")||contra.getText().equals(""))
+            if(nombre.getText().equals("")||contra.getText().equals("")) //Si alguno de los campos esta vacio
                 textoError.setText("Error, rellena los campos");
+            else
+                registrarUsuario(nombre,contra,mAuth,check); //Realiza el registro
         });
     }
     @Override
@@ -82,17 +62,17 @@ public class Registro extends Fragment {
     }
     private void registrarUsuario(EditText correo, EditText contraseña, FirebaseAuth mAuth, CheckBox check) {
         try{
-            mAuth.createUserWithEmailAndPassword(correo.getText().toString(), contraseña.getText().toString())
+            mAuth.createUserWithEmailAndPassword(correo.getText().toString(), contraseña.getText().toString()) //Registra el usuario
                     .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
+                            if (task.isSuccessful()) { ///Si el registro se realiza
                                 new Thread(new Runnable() {
                                     @Override
                                     public void run() {
                                        // cambioPantalla(new MapaFragment());
-                                        registroBD(correo.getText().toString(), contraseña.getText().toString(),check.isChecked());
-                                        cambioPantalla(new AjustesUsuario(),correo.getText().toString());
+                                        db.daoUsuario().insertarUsuario(new Usuario(correo.getText().toString(),contraseña.getText().toString(),check.isChecked())); //Realiza el registro en la BD
+                                        cambioPantalla(new AjustesUsuario(),correo.getText().toString()); //Cambia de pantalla a Ajustes
                                     }
                                 }).start();
                             } else {
@@ -105,27 +85,13 @@ public class Registro extends Fragment {
         }
     }
 
-    private void registroBD(String nombre, String contra, boolean checked) {
-        AppDatabase db = Room.databaseBuilder(
-                        getContext().getApplicationContext(),
-                        AppDatabase.class,
-                        "DatuBase")
-                .allowMainThreadQueries().build();
-        Usuario registrar = new Usuario(nombre,contra,checked);
-        db.daoUsuario().insertarUsuario(registrar);
-    }
-
     private void cambioPantalla(Fragment fragment,String nombre){
-        AppDatabase db = Room.databaseBuilder(
-                        getContext().getApplicationContext(),
-                        AppDatabase.class,
-                        "DatuBase")
-                .allowMainThreadQueries().build();
-        Usuario usuario=db.daoUsuario().obtenerUsuarioNombre(nombre);
-            Bundle bundle = new Bundle();
-            bundle.putInt("idUsuario", usuario.id);
-           fragment.setArguments(bundle);
-        getActivity().getSupportFragmentManager().beginTransaction()
+
+        Usuario usuario=db.daoUsuario().obtenerUsuarioNombre(nombre); //Recoge el nombre de usuario
+        Bundle bundle = new Bundle();
+        bundle.putInt("idUsuario", usuario.id);//Lo manda en el bundle
+        fragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction()//Realiza la transaccion
                 .replace(R.id.contenedorFragment, fragment)
                 .addToBackStack(null)
                 .commit();

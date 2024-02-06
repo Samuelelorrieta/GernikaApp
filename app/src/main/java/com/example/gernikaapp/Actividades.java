@@ -36,75 +36,67 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Actividades extends AppCompatActivity {
-    private FirebaseAuth mAuth;
     private ArrayList<Ubicaciones> listaUbicaciones;
 
-    @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividades);
 
-        SharedPreferences prefs = getSharedPreferences("MisPreferencias2.2", Context.MODE_PRIVATE); //Inicia shared preferences
-        Boolean primerInicio = prefs.getBoolean("Inicio2.2", true);
+        SharedPreferences prefs = getSharedPreferences("Gernika", Context.MODE_PRIVATE); //Inicia shared preferences
+        Boolean primerInicio = prefs.getBoolean("InicioGernika", true); //Revisa si es la primera vez que se inicia la aplicacion, para realizar solo una vez los Insert
        if (primerInicio) {
+           //Crea la instancia de AppDatabase
+           AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
 
-            //Cración de BD
-            AppDatabase db = Room.databaseBuilder(
-                            getApplicationContext(),
-                            AppDatabase.class,
-                            "BD_Prueba_2.2")
-                    .allowMainThreadQueries().build();
+            // Llamada del DaoMunicipio para hacer el insert de municipios y las letras
+            DaoMunicipio daoMunicipio = db.daoMunicipio();
+            DaoLetra daoLetra = db.daoLetra();
 
-        // LLamada del DaoMunicipio para hacer el insert de municipios y las letras
-        DaoMunicipio daoMunicipio = db.daoMunicipio();
-        DaoLetra daoLetra = db.daoLetra();
-
-        // Insert de Letras
-        String abecedario = "ABDEFGHIJKLMNOPRSTUXZ";
-        for (int i = 0; i < abecedario.length(); i++) {
-            String letraSola = String.valueOf(abecedario.charAt(i));
-            daoLetra.insertarLetra(new Letra(i + 1, letraSola));
-        }
-
-        // Insert de Municipios
-        Resources res = getResources();
-        InputStream is = res.openRawResource(R.raw.puebloseuskadi);
-        Scanner scanner = new Scanner(is);
-
-        // Mapa para rastrear el contador de cada letra
-        Map<Character, Integer> letraContador = new HashMap<>();
-
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            String[] lisMunicipio = line.split("#");
-
-            for (String listaMunicipios : lisMunicipio) {
-                // Obtener la primera letra del elemento
-                char primeraLetra = listaMunicipios.toUpperCase().charAt(0);
-
-                // Verificar si ya hemos encontrado esta letra antes
-                if (letraContador.containsKey(primeraLetra)) {
-                    // Incrementar el contador existente
-                    int contador = letraContador.get(primeraLetra) + 1;
-                    letraContador.put(primeraLetra, contador);
-                } else {
-                    // Agregar la letra al mapa con un contador inicial de 1
-                    letraContador.put(primeraLetra, 1);
-                }
-
-                // Obtener el número asociado a la letra
-                int numero = abecedario.indexOf(primeraLetra) + 1;
-
-                System.out.println(listaMunicipios.trim() + " " + numero);
-
-                // Meter el Municipio con su nombre y código de letra
-                daoMunicipio.insertarMunicipio(new Municipio(listaMunicipios.trim(), numero));
+            // Insert de Letras
+            String abecedario = "ABDEFGHIJKLMNOPRSTUXZ";
+            for (int i = 0; i < abecedario.length(); i++) {
+                String letraSola = String.valueOf(abecedario.charAt(i));
+                daoLetra.insertarLetra(new Letra(i + 1, letraSola));
             }
-        }
-        scanner.close();
 
-            //Meter todos los inserts
+            // Insert de Municipios
+            Resources res = getResources();
+            InputStream is = res.openRawResource(R.raw.puebloseuskadi);
+            Scanner scanner = new Scanner(is);
+            // Mapa para rastrear el contador de cada letra
+            Map<Character, Integer> letraContador = new HashMap<>();
+
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] lisMunicipio = line.split("#");
+
+                for (String listaMunicipios : lisMunicipio) {
+                    // Obtener la primera letra del elemento
+                    char primeraLetra = listaMunicipios.toUpperCase().charAt(0);
+
+                    // Verificar si ya hemos encontrado esta letra antes
+                    if (letraContador.containsKey(primeraLetra)) {
+                        // Incrementar el contador existente
+                        int contador = letraContador.get(primeraLetra) + 1;
+                        letraContador.put(primeraLetra, contador);
+                    }   else {
+                        // Agregar la letra al mapa con un contador inicial de 1
+                        letraContador.put(primeraLetra, 1);
+                    }
+
+                    // Obtener el número asociado a la letra
+                    int numero = abecedario.indexOf(primeraLetra) + 1;
+
+                    System.out.println(listaMunicipios.trim() + " " + numero);
+
+                    // Meter el Municipio con su nombre y código de letra
+                    daoMunicipio.insertarMunicipio(new Municipio(listaMunicipios.trim(), numero));
+                }
+            }
+            scanner.close();
+
+            //Crea los objetos Figura y Texto
 
             Figura toro = new Figura(1,"Toro");
             Figura guerrero = new Figura(2,"Guerrero");
@@ -123,6 +115,8 @@ public class Actividades extends AppCompatActivity {
             Texto caballoEus = new Texto("Konposizioaren erdian dago. Aurreko hanketako bat aurreratzen du orekan mantentzeko, erortzeko zorian dagoela ematen baitu. Ezkerreko saihetsean zauri bertikal bat irekitzen da eta, gainera, lantza batek zeharkatzen du.","eus",3);
             Texto hombreEus = new Texto("Ezkerrean dago, eta ez da begi hutsez ikusten. Hegala erorita dauka eta burua gorantz jiratuta, mokoa irekita. Oro har, hautsitako bakearen sinbolotzat hartu izan da.","eus",4);
             Texto mujerEus = new Texto("Ezkerrean dago, aurpegia zerurantz begira, oinazezko keinu edo oihu batean. Semeari besoetan eusten dio. Juan Larrearen interpretazio eztabaidatuaren arabera, ama-semeen taldeak Madril hiria sinbolizatuko luke, Francoren tropek setiatua.","eus",5);
+
+            //Los introduce en la BD
 
             DaoFigura usur = db.daoFigura();
 
@@ -144,14 +138,13 @@ public class Actividades extends AppCompatActivity {
 
             usur.insertarFigura(mujer);
             usur.insertarTexto(mujerEsp);
-            usur.insertarTexto(hombreEsp);
+            usur.insertarTexto(mujerEus);
 
             SharedPreferences.Editor editor = prefs.edit(); // Crea el editor
-            editor.putBoolean("Inicio2.2",false);
+            editor.putBoolean("InicioGernika",false); //Indica que la aplicacion ya ha sido iniciada, y no es necesario realizar los Insert
             editor.commit(); // Guarda los cambios
         }
 
-        mAuth = FirebaseAuth.getInstance();
         // Obtén el FragmentManager
         FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -159,7 +152,7 @@ public class Actividades extends AppCompatActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         // Reemplaza el contenido del contenedor con el Fragment
-        transaction.replace(R.id.contenedorFragment, new RuletaFragment());
+        transaction.replace(R.id.contenedorFragment, new IniciarSesion());
 
         // Confirma la transacción
         transaction.commit();

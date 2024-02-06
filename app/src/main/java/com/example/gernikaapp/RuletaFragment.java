@@ -36,6 +36,7 @@ public class RuletaFragment extends Fragment {
 
     ImageView ruleta, flecha;
     TextView lbl_Letra_Seleccionada;
+    AppDatabase db;
     EditText txt_Pueblo1, txt_Pueblo2, txt_Pueblo3;
     Button btn_Comprobar;
     int rotacion = 0, velocidadRotacion = 21;
@@ -61,7 +62,7 @@ public class RuletaFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        db = AppDatabase.getDatabase(getContext());
         ruleta = view.findViewById(R.id.wheel);
         flecha = view.findViewById(R.id.arrow);
 
@@ -81,7 +82,7 @@ public class RuletaFragment extends Fragment {
                 // Obtener una posición aleatoria que no sea F, N o R
                 do {
                     posicionRadianes = new Random().nextInt(letrasRuleta.length);
-                } while (letrasRuleta[posicionRadianes].equals("F") || letrasRuleta[posicionRadianes].equals("N") || letrasRuleta[posicionRadianes].equals("R"));
+                } while (letrasRuleta[posicionRadianes].equals("F") || letrasRuleta[posicionRadianes].equals("N") || letrasRuleta[posicionRadianes].equals("R") || letrasRuleta[posicionRadianes].equals("X"));
 
                 gira = true;
                 mediaPlayer.start();
@@ -164,13 +165,7 @@ public class RuletaFragment extends Fragment {
             boolean pueblo2PuebloValidado = false;
             boolean pueblo3PuebloValidado = false;
 
-            //Cración de BD
-            AppDatabase db = Room.databaseBuilder(
-                            getContext().getApplicationContext(),
-                            AppDatabase.class,
-                            "BD_Prueba_2.2")
-                    .allowMainThreadQueries().build();
-
+            //Creación de BD
             DaoMunicipio dao = db.daoMunicipio();
 
             List<Municipio> municipios = dao.obtenerMunicipioPorIdLetra(posicionRadianes + 1);

@@ -21,83 +21,50 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link IniciarSesion#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class IniciarSesion extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+    AppDatabase db;
     public IniciarSesion() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment IniciarSesion.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static IniciarSesion newInstance(String param1, String param2) {
-        IniciarSesion fragment = new IniciarSesion();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        //Recoge la instancia de AppDatabase
+        db = AppDatabase.getDatabase(getContext());
+
+        //Botones
         Button iniciar = view.findViewById(R.id.registrar);
         Button recordar = view.findViewById(R.id.recordarContra);
         Button registro = view.findViewById(R.id.registro);
+
         EditText nombre = view.findViewById(R.id.nombre);
         EditText contra = view.findViewById(R.id.contra);
+
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        TextView textoError =view.findViewById(R.id.textoError);
+
         registro.setOnClickListener(v ->{
-            cambioPantalla(new Registro(),"",false);
+            cambioPantalla(new Registro(),"",false); //Cambia el fragment a Registro
                 });
+
         iniciar.setOnClickListener(v -> {
-            iniciarSesion(nombre,contra,mAuth);
+            if(!(nombre.getText().toString().equals(""))&&!(contra.getText().toString().equals(""))) //Si los dos campos no estan vacios
+             iniciarSesion(nombre,contra,mAuth); //Realiza el inicio de sesion el Firebase
         });
+
         recordar.setOnClickListener(v -> {
-            ponerContra(nombre.getText().toString(),contra);
+            if(!(nombre.getText().toString().equals(""))||!(contra.getText().toString().equals(""))) //Si los dos campos no estan vacios
+                ponerContra(nombre.getText().toString(),contra); //Llama a la BD y revisa si esta guardada la contra
         });
+
     }
 
     private void ponerContra(String nombre, EditText contra) {
-        AppDatabase db = Room.databaseBuilder(
-                        getContext().getApplicationContext(),
-                        AppDatabase.class,
-                        "DatuBase")
-                .allowMainThreadQueries().build();
-        Usuario usuario = db.daoUsuario().obtenerUsuarioNombre(nombre);
-        if(usuario.guardarContra)
+        Usuario usuario = db.daoUsuario().obtenerUsuarioNombre(nombre); //Llama a la BD
+        System.out.println(usuario.contrasenya);
+        if(usuario.guardarContra) //Si existe el usuario y guardo la contraseña
         {
-            contra.setText(usuario.contrasenya.toString());
+            contra.setText(usuario.contrasenya); //Pone la contraseña en el campo correspondiente
         }
     }
 
@@ -109,15 +76,15 @@ public class IniciarSesion extends Fragment {
     }
 
     private void iniciarSesion(EditText correo, EditText contraseña, FirebaseAuth mAuth){
-        mAuth.signInWithEmailAndPassword(correo.getText().toString(), contraseña.getText().toString()) .addOnCompleteListener(new OnCompleteListener<AuthResult>()
+        mAuth.signInWithEmailAndPassword(correo.getText().toString(), contraseña.getText().toString()) .addOnCompleteListener(new OnCompleteListener<AuthResult>() //Inicia sesion con Firebase
         {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
+                if (task.isSuccessful()) { //Si el inicio de sesion se realiza
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            cambioPantalla(new AjustesUsuario(),correo.getText().toString(),true);
+                            cambioPantalla(new AjustesUsuario(),correo.getText().toString(),true); //Cambia la pantalla a ajustes usuario
                         }
                     }).start();
                 }
@@ -125,18 +92,14 @@ public class IniciarSesion extends Fragment {
         });
     }
     private void cambioPantalla(Fragment fragment,String nombre,boolean id){
-        if(id) {
-            AppDatabase db = Room.databaseBuilder(
-                            getContext().getApplicationContext(),
-                            AppDatabase.class,
-                            "DatuBase")
-                    .allowMainThreadQueries().build();
-            Usuario usuario = db.daoUsuario().obtenerUsuarioNombre(nombre);
+        if(id)//Si queremos que envie el nombre de usuario
+             {
+            Usuario usuario = db.daoUsuario().obtenerUsuarioNombre(nombre); //Recoge el nombre de usuario
             Bundle bundle = new Bundle();
-            bundle.putInt("idUsuario", usuario.id);
+            bundle.putInt("idUsuario", usuario.id);//Lo manda en el bundle
             fragment.setArguments(bundle);
         }
-        getActivity().getSupportFragmentManager().beginTransaction()
+        getActivity().getSupportFragmentManager().beginTransaction() //Realiza la transaccion
                 .replace(R.id.contenedorFragment, fragment)
                 .addToBackStack(null)
                 .commit();

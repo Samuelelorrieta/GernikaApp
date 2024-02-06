@@ -44,7 +44,7 @@ public class MapaFragment extends Fragment {
     private double lat = 0;
     private double lon = 0;
     private String ubicacion = "";
-    private final int rango = 20;
+    private final int rango = 2000000;
     //----------------//
 
     //--------Variables que recogemos--------//
@@ -55,6 +55,7 @@ public class MapaFragment extends Fragment {
     private GeoPoint geoPoint;
     private int permiso = 0;
     private boolean error = true;
+    String llegada="";
 
     public MapaFragment() {
         // Constructor vacío requerido por Android
@@ -63,7 +64,7 @@ public class MapaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mapa, container, false);
-
+        String llegada = requireContext().getResources().getString(R.string.Destino);
         //Recibe queFragmentVoy del resto de fragment
         Bundle bundle = getArguments();
         if (bundle != null) {
@@ -82,7 +83,6 @@ public class MapaFragment extends Fragment {
         //Inicializamos el GeoPoint con las coordenadas necesarias
         geoPoint = new GeoPoint(lat, lon); // Coordenadas del marcador
         //geoPoint = new GeoPoint( 43.2837756904145, -2.964419127575523); // Coordenadas del marcador (Clase)
-
 
 
         // Configuración de osmdroid
@@ -127,7 +127,7 @@ public class MapaFragment extends Fragment {
 
                     // Si estás lo suficientemente cerca del marcador, muestra un mensaje
                     if (distance < rango) { // Distancia a la que se activa el checpoint
-                        showMessage("Acaba de llegar a su destino ;)");
+                        showMessage(llegada);
                         irBunkerFragment();
                     }
                 }

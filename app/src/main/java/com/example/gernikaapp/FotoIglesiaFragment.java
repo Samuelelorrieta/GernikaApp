@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 public class FotoIglesiaFragment extends Fragment {
     //Informacion para llegar a la siguiente parte de la gincana
     private final int queFragmentVoy = 4;
-    //----------------//
 
     public FotoIglesiaFragment() {
         // Required empty public constructor
@@ -30,6 +29,7 @@ public class FotoIglesiaFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //Imagenes error/Acierto
         ImageView tick = view.findViewById(R.id.tick);
         ImageView equis = view.findViewById(R.id.equis);
         ImageView equis2 = view.findViewById(R.id.equis2);
@@ -40,6 +40,8 @@ public class FotoIglesiaFragment extends Fragment {
         equis3.setVisibility(View.INVISIBLE);
 
         Button botonComprobar = view.findViewById(R.id.buttonCom);
+
+        //RadioButton
         RadioButton rbIglesia1 = view.findViewById(R.id.radioButtonIglesia1);
         RadioButton rbIglesia2 = view.findViewById(R.id.radioButtonIglesia2);
         RadioButton rbIglesia3 = view.findViewById(R.id.radioButtonIglesia3);
@@ -48,16 +50,16 @@ public class FotoIglesiaFragment extends Fragment {
             botonComprobar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (rbIglesia1.isChecked()) {
+                    if (rbIglesia1.isChecked()) { //Si la primera opcion es seleccionada
                         equis.setVisibility(View.VISIBLE);
                         equis2.setVisibility(View.INVISIBLE);
                         equis3.setVisibility(View.INVISIBLE);
-                    } else if (rbIglesia2.isChecked()) {
+                    } else if (rbIglesia2.isChecked()) { //Si la segunda opcion es seleccionada
                         tick.setVisibility(View.VISIBLE);
                         equis.setVisibility(View.INVISIBLE);
                         equis2.setVisibility(View.INVISIBLE);
                         equis3.setVisibility(View.INVISIBLE);
-                        new Thread(new Runnable() {
+                        new Thread(new Runnable() {//Cambia de frament
                             @Override
                             public void run() {
 
