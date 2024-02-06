@@ -17,6 +17,7 @@ import com.example.gernikaapp.BD.AppDatabase;
 import com.example.gernikaapp.BD.DaoFigura;
 import com.example.gernikaapp.BD.DaoUsuario;
 import com.example.gernikaapp.BD.Figura;
+import com.example.gernikaapp.BD.JuegoRuleta.DaoLetra;
 import com.example.gernikaapp.BD.JuegoRuleta.DaoMunicipio;
 import com.example.gernikaapp.BD.JuegoRuleta.Letra;
 import com.example.gernikaapp.BD.JuegoRuleta.Municipio;
@@ -44,58 +45,64 @@ public class Actividades extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividades);
 
-        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE); //Inicia shared preferences
-        Boolean primerInicio = prefs.getBoolean("Inicio", true);
-        if (primerInicio) {
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias2.2", Context.MODE_PRIVATE); //Inicia shared preferences
+        Boolean primerInicio = prefs.getBoolean("Inicio2.2", true);
+       if (primerInicio) {
 
             //Cración de BD
-           AppDatabase db= AppDatabase.getDatabase( getApplicationContext());
-           DaoMunicipio dao = db.daoMunicipio();
-            db.clearAllTables();
+            AppDatabase db = Room.databaseBuilder(
+                            getApplicationContext(),
+                            AppDatabase.class,
+                            "BD_Prueba_2.2")
+                    .allowMainThreadQueries().build();
 
-            //Insert de Letras
-            String abecedario = "ABDEFGHIJKLMNOPRSTUXZ";
-            for(int cont = 0; cont < abecedario.length(); cont++){
-                String letraSola = String.valueOf(abecedario.charAt(cont));
-                Letra letra = new Letra(letraSola);
-                dao.insertarLetra(letra);
-            }
+        // LLamada del DaoMunicipio para hacer el insert de municipios y las letras
+        DaoMunicipio daoMunicipio = db.daoMunicipio();
+        DaoLetra daoLetra = db.daoLetra();
 
-            //Insert de Municipios
-            Resources res = getResources();
-            InputStream is = res.openRawResource(R.raw.puebloseuskadi);
-            Scanner scanner = new Scanner(is);
+        // Insert de Letras
+        String abecedario = "ABDEFGHIJKLMNOPRSTUXZ";
+        for (int i = 0; i < abecedario.length(); i++) {
+            String letraSola = String.valueOf(abecedario.charAt(i));
+            daoLetra.insertarLetra(new Letra(i + 1, letraSola));
+        }
 
-            // Mapa para rastrear el contador de cada letra
-            Map<Character, Integer> letraContador = new HashMap<>();
+        // Insert de Municipios
+        Resources res = getResources();
+        InputStream is = res.openRawResource(R.raw.puebloseuskadi);
+        Scanner scanner = new Scanner(is);
 
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] lisMunicipio = line.split("#");
+        // Mapa para rastrear el contador de cada letra
+        Map<Character, Integer> letraContador = new HashMap<>();
 
-                for (String listaMunicipios : lisMunicipio) {
-                    // Obtener la primera letra del elemento
-                    char primeraLetra = listaMunicipios.toUpperCase().charAt(0);
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            String[] lisMunicipio = line.split("#");
 
-                    // Verificar si ya hemos encontrado esta letra antes
-                    if (letraContador.containsKey(primeraLetra)) {
-                        // Incrementar el contador existente
-                        int contador = letraContador.get(primeraLetra) + 1;
-                        letraContador.put(primeraLetra, contador);
-                    } else {
-                        // Agregar la letra al mapa con un contador inicial de 1
-                        letraContador.put(primeraLetra, 1);
-                    }
+            for (String listaMunicipios : lisMunicipio) {
+                // Obtener la primera letra del elemento
+                char primeraLetra = listaMunicipios.toUpperCase().charAt(0);
 
-                    // Obtener el número asociado a la letra
-                    int numero = abecedario.indexOf(primeraLetra) + 1;
-
-                    //Meter el Municipio con su nombre y codigo de letra
-                    Municipio municipio = new Municipio(listaMunicipios.trim(), numero);
-                    dao.insertarMunicipio(municipio);
+                // Verificar si ya hemos encontrado esta letra antes
+                if (letraContador.containsKey(primeraLetra)) {
+                    // Incrementar el contador existente
+                    int contador = letraContador.get(primeraLetra) + 1;
+                    letraContador.put(primeraLetra, contador);
+                } else {
+                    // Agregar la letra al mapa con un contador inicial de 1
+                    letraContador.put(primeraLetra, 1);
                 }
+
+                // Obtener el número asociado a la letra
+                int numero = abecedario.indexOf(primeraLetra) + 1;
+
+                System.out.println(listaMunicipios.trim() + " " + numero);
+
+                // Meter el Municipio con su nombre y código de letra
+                daoMunicipio.insertarMunicipio(new Municipio(listaMunicipios.trim(), numero));
             }
-            scanner.close();
+        }
+        scanner.close();
 
             //Meter todos los inserts
 
@@ -140,7 +147,7 @@ public class Actividades extends AppCompatActivity {
             usur.insertarTexto(hombreEsp);
 
             SharedPreferences.Editor editor = prefs.edit(); // Crea el editor
-            editor.putBoolean("Inicio",false);
+            editor.putBoolean("Inicio2.2",false);
             editor.commit(); // Guarda los cambios
         }
 
@@ -152,7 +159,7 @@ public class Actividades extends AppCompatActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
 
         // Reemplaza el contenido del contenedor con el Fragment
-        transaction.replace(R.id.contenedorFragment, new IniciarSesion());
+        transaction.replace(R.id.contenedorFragment, new RuletaFragment());
 
         // Confirma la transacción
         transaction.commit();
@@ -174,5 +181,7 @@ public class Actividades extends AppCompatActivity {
         }
         return super.dispatchKeyEvent(event);
     }
+
+
 
 }

@@ -17,25 +17,27 @@
             android:layout_width="350dp"
             android:layout_height="350dp"
             android:scaleType="centerInside"
-            android:src="@drawable/wheel"
+            android:src="@drawable/ruleta3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.491"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.364" />
+            app:layout_constraintVertical_bias="0.4" />
 
         <ImageView
             android:id="@+id/arrow"
-            android:layout_width="320dp"
-            android:layout_height="320dp"
+            android:layout_width="346dp"
+            android:layout_height="340dp"
             android:layout_marginEnd="11dp"
+            android:rotationY="5"
             android:src="@drawable/spin_arrow"
             app:layout_constraintBottom_toBottomOf="@+id/wheel"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintHorizontal_bias="0.629"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/wheel" />
+            app:layout_constraintTop_toTopOf="@+id/wheel"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/lbl_Ruleta"

@@ -15,7 +15,4 @@ public interface DaoMunicipio {
     @Insert
     void insertarMunicipio(Municipio municipio);
 
-    @Insert
-    void insertarLetra(Letra Letra);
-
 }

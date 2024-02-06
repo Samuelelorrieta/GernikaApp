@@ -39,8 +39,8 @@ public class RuletaFragment extends Fragment {
     EditText txt_Pueblo1, txt_Pueblo2, txt_Pueblo3;
     Button btn_Comprobar;
     int rotacion = 0, velocidadRotacion = 21;
-    double[] posicionParada = {17.14, 34.29, 51.43, 68.57, 85.71, 102.86, 120, 137.14, 154.29, 171.43, 188.57, 205.71, 222.86, 240, 257.14, 274.29, 291.43, 308.57, 325.71, 342.86, 360};
-    String[] letrasRuleta = {"R", "S", "T", "U", "X", "Z", "A", "B", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P"};
+    double[] posicionParada = {360, 17.14, 34.29, 51.43, 68.57, 85.71, 102.86, 120, 137.14, 154.29, 171.43, 188.57, 205.71, 222.86, 240, 257.14, 274.29, 291.43, 308.57, 325.71, 342.86};
+    String[] letrasRuleta = {"A", "B", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "R", "S", "T", "U", "X", "Z"};
     int posicionRadianes = 0;
     boolean gira = false;
     private MediaPlayer mediaPlayer;
@@ -78,7 +78,11 @@ public class RuletaFragment extends Fragment {
         //Invisible los Tiks
         flecha.setOnClickListener(v -> {
             if (!gira) {
-                posicionRadianes = new Random().nextInt(21);
+                // Obtener una posición aleatoria que no sea F, N o R
+                do {
+                    posicionRadianes = new Random().nextInt(letrasRuleta.length);
+                } while (letrasRuleta[posicionRadianes].equals("F") || letrasRuleta[posicionRadianes].equals("N") || letrasRuleta[posicionRadianes].equals("R"));
+
                 gira = true;
                 mediaPlayer.start();
                 startSpin();
@@ -87,12 +91,10 @@ public class RuletaFragment extends Fragment {
 
         btn_Comprobar.setOnClickListener(v -> {
 
-            validarPueblos();
-
             if (txt_Pueblo1.getText().toString().isEmpty() || txt_Pueblo2.getText().toString().isEmpty() || txt_Pueblo3.getText().toString().isEmpty()) {
                 Toast.makeText(requireContext(), "Rellena todos los campos", Toast.LENGTH_SHORT).show();
             } else {
-                if(validarPueblos() == true){
+                if (obtenerMunicipiosPorLetra() == true) {
                     //Guardar toda la información para el Marker del mapa
                     Bundle bundle = new Bundle();
                     bundle.putInt("queFragmentVoy", queFragmentVoy);
@@ -104,6 +106,8 @@ public class RuletaFragment extends Fragment {
                             .replace(R.id.contenedorFragment, mapaFragment)
                             .addToBackStack(null)
                             .commit();
+                }else{
+                    Toast.makeText(requireContext(), "Revisa que los pueblos existen o que esten bien escritos", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -134,15 +138,15 @@ public class RuletaFragment extends Fragment {
                 txt_Pueblo3.setEnabled(true);
                 btn_Comprobar.setVisibility(View.VISIBLE);
 
-                obtenerMunicipiosPorLetra();
-
             } else {
                 startSpin();
             }
         }, 1);
     }
 
-    public boolean validarPueblos() {
+
+    private boolean obtenerMunicipiosPorLetra() {
+
         boolean todoCorrecto = false;
 
         // Obtener los textos de los TextView en un array
@@ -152,75 +156,50 @@ public class RuletaFragment extends Fragment {
                 txt_Pueblo3.getText().toString()
         };
 
-        // Verificar que los textos en los TextView no sean iguales
         if (!pueblos[0].equalsIgnoreCase(pueblos[1]) && !pueblos[0].equalsIgnoreCase(pueblos[2]) &&
                 !pueblos[1].equalsIgnoreCase(pueblos[2])) {
 
-            // Obtiene el archivo .txt de la carpeta raw
-            Resources res = getResources();
-            InputStream is = res.openRawResource(R.raw.puebloseuskadi);
+            // Reinicia la validación en cada iteración
+            boolean pueblo1PuebloValidado = false;
+            boolean pueblo2PuebloValidado = false;
+            boolean pueblo3PuebloValidado = false;
 
-            // Lee el archivo .txt
-            Scanner scanner = new Scanner(is);
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] elementos = line.split("#");
+            //Cración de BD
+            AppDatabase db = Room.databaseBuilder(
+                            getContext().getApplicationContext(),
+                            AppDatabase.class,
+                            "BD_Prueba_2.2")
+                    .allowMainThreadQueries().build();
 
-                // Reinicia la validación en cada iteración
-                boolean pueblo1PuebloValidado = false;
-                boolean pueblo2PuebloValidado = false;
-                boolean pueblo3PuebloValidado = false;
+            DaoMunicipio dao = db.daoMunicipio();
 
-                for (String elemento : elementos) {
-                    if (elemento.startsWith(letrasRuleta[posicionRadianes])) {
-                        System.out.println(elemento);
+            List<Municipio> municipios = dao.obtenerMunicipioPorIdLetra(posicionRadianes + 1);
 
-                        if (pueblos[0].equalsIgnoreCase(elemento) && !pueblo1PuebloValidado) {
-                            pueblo1PuebloValidado = true;
-                        }
+            for (Municipio municipio : municipios) {
+                System.out.println(municipio.nombre + " " + municipio.idLetra);
 
-                        if (pueblos[1].equalsIgnoreCase(elemento) && !pueblo2PuebloValidado) {
-                            pueblo2PuebloValidado = true;
-                        }
+                if (pueblos[0].equalsIgnoreCase(municipio.nombre) && !pueblo1PuebloValidado) {
+                    pueblo1PuebloValidado = true;
+                }
 
-                        if (pueblos[2].equalsIgnoreCase(elemento) && !pueblo3PuebloValidado) {
-                            pueblo3PuebloValidado = true;
-                        }
+                if (pueblos[1].equalsIgnoreCase(municipio.nombre) && !pueblo2PuebloValidado) {
+                    pueblo2PuebloValidado = true;
+                }
 
-                        // Verifica que todos los pueblos estén validados
-                        if (pueblo1PuebloValidado && pueblo2PuebloValidado && pueblo3PuebloValidado) {
-                            todoCorrecto = true;
-                        }
-                    }
+                if (pueblos[2].equalsIgnoreCase(municipio.nombre) && !pueblo3PuebloValidado) {
+                    pueblo3PuebloValidado = true;
+                }
+
+                // Verifica que todos los pueblos estén validados
+                if (pueblo1PuebloValidado && pueblo2PuebloValidado && pueblo3PuebloValidado) {
+                    todoCorrecto = true;
                 }
             }
-            scanner.close();
-        }else{
-            Toast.makeText(requireContext(), "Esta prohibido usar repetir nombres", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(requireContext(), "Esta prohibido repetir nombres", Toast.LENGTH_SHORT).show();
         }
-
         return todoCorrecto;
     }
-
-    private DaoMunicipio obtenerMunicipiosPorLetra() {
-        //Cración de BD
-        AppDatabase db = Room.databaseBuilder(
-                        getContext().getApplicationContext(),
-                        AppDatabase.class,
-                        "DatuBase")
-                .allowMainThreadQueries().build();
-
-        DaoMunicipio dao = db.daoMunicipio();
-
-        List<Municipio> municipios = (List<Municipio>) dao.obtenerMunicipioPorIdLetra(1);
-
-        for (Municipio municipio : municipios) {
-            System.out.println(municipio.nombre + " " + municipio.idLetra);
-        }
-
-        return dao;
-    }
-
 
 
 }
