@@ -44,30 +44,13 @@ public class Actividades extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividades);
 
-        //-------------------------------------------------------------------------------------/
-
-
-
-
-        //-------------------------------------------------------------------------------------/
-
-
-
-
         SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE); //Inicia shared preferences
         Boolean primerInicio = prefs.getBoolean("Inicio", true);
         if (primerInicio) {
 
             //Cración de BD
-            AppDatabase db = Room.databaseBuilder(
-                            getApplicationContext(),
-                            AppDatabase.class,
-                            "DatuBase2")
-                    .allowMainThreadQueries().build();
-
-            //LLamada del DaoMunicipio para hacer el instar de municipios y las letras
-            DaoMunicipio dao = db.daoMunicipio();
-
+           AppDatabase db= AppDatabase.getDatabase( getApplicationContext());
+           DaoMunicipio dao = db.daoMunicipio();
             db.clearAllTables();
 
             //Insert de Letras

@@ -9,6 +9,7 @@ import androidx.room.PrimaryKey;
 @Entity(foreignKeys = {@ForeignKey(entity = Figura.class,
         parentColumns = "id",
         childColumns = "idFigura")
+        //onDelete = ForeignKey.CASCADE)
 })
 public class Texto {
 
