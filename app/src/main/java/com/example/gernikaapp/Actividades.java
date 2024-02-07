@@ -22,6 +22,7 @@ import com.example.gernikaapp.BD.JuegoRuleta.DaoMunicipio;
 import com.example.gernikaapp.BD.JuegoRuleta.Letra;
 import com.example.gernikaapp.BD.JuegoRuleta.Municipio;
 import com.example.gernikaapp.BD.Texto;
+import com.example.gernikaapp.BD.Usuario;
 import com.example.gernikaapp.Modelo.Ubicaciones;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -139,6 +140,8 @@ public class Actividades extends AppCompatActivity {
             usur.insertarFigura(mujer);
             usur.insertarTexto(mujerEsp);
             usur.insertarTexto(mujerEus);
+
+            db.daoUsuario().insertarUsuario(new Usuario("pedro@gmail.com","Pedro10",true));
 
             SharedPreferences.Editor editor = prefs.edit(); // Crea el editor
             editor.putBoolean("InicioGernika",false); //Indica que la aplicacion ya ha sido iniciada, y no es necesario realizar los Insert
