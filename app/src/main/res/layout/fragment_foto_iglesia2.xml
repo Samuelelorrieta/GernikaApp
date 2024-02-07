@@ -138,24 +138,32 @@
         <RadioButton
             android:id="@+id/radioButtonIglesia1"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
             android:layout_height="wrap_content"
             android:text="@string/iglesia_1" />
 
         <RadioButton
             android:id="@+id/radioButtonIglesia2"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
             android:layout_height="wrap_content"
             android:text="@string/iglesia_2" />
 
         <RadioButton
             android:id="@+id/radioButtonIglesia3"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
             android:layout_height="wrap_content"
             android:text="@string/iglesia_3" />
 
         <RadioButton
             android:id="@+id/radioButtonIglesia4"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/black"
             android:layout_height="wrap_content"
             android:text="@string/iglesia_4" />
 
@@ -167,6 +175,8 @@
         android:layout_height="38dp"
         android:backgroundTint="@color/verde_boton"
         android:text="@string/btn_comprobar"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"

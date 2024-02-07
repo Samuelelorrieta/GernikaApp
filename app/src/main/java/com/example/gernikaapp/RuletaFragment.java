@@ -82,7 +82,7 @@ public class RuletaFragment extends Fragment {
                 // Obtener una posición aleatoria que no sea F, N o R
                 do {
                     posicionRadianes = new Random().nextInt(letrasRuleta.length);
-                } while (letrasRuleta[posicionRadianes].equals("F") || letrasRuleta[posicionRadianes].equals("N") || letrasRuleta[posicionRadianes].equals("R") || letrasRuleta[posicionRadianes].equals("X"));
+                } while (letrasRuleta[posicionRadianes].equals("F") || letrasRuleta[posicionRadianes].equals("N") || letrasRuleta[posicionRadianes].equals("R") || letrasRuleta[posicionRadianes].equals("X")|| letrasRuleta[posicionRadianes].equals("J"));
 
                 gira = true;
                 mediaPlayer.start();

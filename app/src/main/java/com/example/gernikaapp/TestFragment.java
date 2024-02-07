@@ -34,10 +34,12 @@ public class TestFragment extends Fragment {
         TextView error = view.findViewById(R.id.errorTest);
         error.setVisibility(View.INVISIBLE);
 
+        //RadioButtons
         RadioButton test1 = view.findViewById(R.id.radio11);
         RadioButton test2 = view.findViewById(R.id.radio21);
         RadioButton test3 = view.findViewById(R.id.radio31);
 
+        //Imagenes
         ImageView tick1 = view.findViewById(R.id.tick1);
         tick1.setVisibility(View.INVISIBLE);
         ImageView tick2 = view.findViewById(R.id.tick2);
@@ -52,33 +54,33 @@ public class TestFragment extends Fragment {
         cross3.setVisibility(View.INVISIBLE);
 
         boton.setOnClickListener(v -> {
-            if (test1.isChecked()) {
-                tick1.setVisibility(View.VISIBLE);
+            if (test1.isChecked()) { //Si la respuest correcta esta seleccionada
+                tick1.setVisibility(View.VISIBLE); //Indica que la respuesta es correcta
                 cross1.setVisibility(View.INVISIBLE);
             } else {
-                cross1.setVisibility(View.VISIBLE);
+                cross1.setVisibility(View.VISIBLE); //Indica que la respuesta es incorrecta
                 tick1.setVisibility(View.INVISIBLE);
             }
 
-            if (test2.isChecked()) {
-                tick2.setVisibility(View.VISIBLE);
+            if (test2.isChecked()) { //Si la respuest correcta esta seleccionada
+                tick2.setVisibility(View.VISIBLE);//Indica que la respuesta es correcta
                 cross2.setVisibility(View.INVISIBLE);
             } else {
-                cross2.setVisibility(View.VISIBLE);
+                cross2.setVisibility(View.VISIBLE);//Indica que la respuesta es incorrecta
                 tick2.setVisibility(View.INVISIBLE);
             }
 
-            if (test3.isChecked()) {
-                tick3.setVisibility(View.VISIBLE);
+            if (test3.isChecked()) { //Si la respuest correcta esta seleccionada
+                tick3.setVisibility(View.VISIBLE);//Indica que la respuesta es correcta
                 cross3.setVisibility(View.INVISIBLE);
             } else {
-                cross3.setVisibility(View.VISIBLE);
+                cross3.setVisibility(View.VISIBLE);//Indica que la respuesta es incorrecta
                 tick3.setVisibility(View.INVISIBLE);
             }
 
-            if (test1.isChecked() && test2.isChecked() && test3.isChecked()) {
+            if (test1.isChecked() && test2.isChecked() && test3.isChecked()) { //Si las tres respuestas correctas estan seleccionadas
                 error.setVisibility(View.VISIBLE);
-                Intent irBunker = new Intent(requireContext(), FotoIglesiaFragment.class);
+                Intent irBunker = new Intent(requireContext(), MainActivity.class);
                 new Handler().postDelayed(() -> {
                     startActivity(irBunker);
                     // Puedes realizar más operaciones después de la pausa en este hilo

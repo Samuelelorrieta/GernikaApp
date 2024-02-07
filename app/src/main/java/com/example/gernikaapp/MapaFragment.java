@@ -2,6 +2,7 @@ package com.example.gernikaapp;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -64,7 +65,18 @@ public class MapaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mapa, container, false);
-        String llegada = requireContext().getResources().getString(R.string.Destino);
+
+        SharedPreferences prefs = requireContext().getSharedPreferences("Gernika", Context.MODE_PRIVATE);
+        String idioma = prefs.getString("idiomas", "esp");
+        llegada="Acaba de llegar a su destino ;)";
+        if(!idioma.equals(""))
+        {
+            llegada="Helmugara iritsi zara;)";
+        }
+
+
+
+
         //Recibe queFragmentVoy del resto de fragment
         Bundle bundle = getArguments();
         if (bundle != null) {

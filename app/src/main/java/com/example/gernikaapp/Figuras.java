@@ -2,13 +2,11 @@ package com.example.gernikaapp;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.gernikaapp.BD.AppDatabase;
-import com.example.gernikaapp.BD.DaoFigura;
 
 public class Figuras extends Fragment {
 
@@ -58,27 +55,25 @@ public class Figuras extends Fragment {
                 });
 
         toro.setOnClickListener(v -> {
-            rellenarDatos(titulo,Descripcion,"Toro");
+            rellenarDatos(titulo,Descripcion,"Toro","Zezena"); //Al clikcar en la imagens e muestra la informacion de la figura
 
         });
         Guerrero.setOnClickListener(v -> {
-            rellenarDatos(titulo,Descripcion, "Guerrero");
+            rellenarDatos(titulo,Descripcion, "Guerrero","Gudari"); //Al clikcar en la imagens e muestra la informacion de la figura
 
         });
         Caballo.setOnClickListener(v -> {
-            rellenarDatos(titulo,Descripcion, "Caballo");
+            rellenarDatos(titulo,Descripcion, "Caballo","Zaldia"); //Al clikcar en la imagens e muestra la informacion de la figura
 
         });
         Paloma.setOnClickListener(v -> {
-            rellenarDatos(titulo,Descripcion, "Paloma");
+            rellenarDatos(titulo,Descripcion, "Paloma","Usoa"); //Al clikcar en la imagens e muestra la informacion de la figura
 
         });
         Madre.setOnClickListener(v -> {
-            rellenarDatos(titulo,Descripcion, "Madre");
+            rellenarDatos(titulo,Descripcion, "Madre","Ama"); //Al clikcar en la imagens e muestra la informacion de la figura
 
         });
-
-
     }
 
     private void cambiarFragment() {
@@ -93,11 +88,16 @@ public class Figuras extends Fragment {
                 .commit();
     }
 
-    private void rellenarDatos(TextView titulo, TextView descripcion, String nombre) {
+    private void rellenarDatos(TextView titulo, TextView descripcion, String esp, String eus) {
         SharedPreferences prefs = requireContext().getSharedPreferences("Gernika", Context.MODE_PRIVATE);
-        String idioma = prefs.getString("idiomas", "esp");
-        String textoFigura =db.daoFigura().obtenerTexto(idioma,nombre); //Recoge en la BD
-        titulo.setText(nombre);
+        String idioma = prefs.getString("idiomas", "");
+        if(idioma.equals(""))
+            idioma="esp";
+        String textoFigura =db.daoFigura().obtenerTexto(idioma,esp); //Recoge en la BD
+        if(idioma.equals("eus"))
+            titulo.setText(eus);
+        else
+            titulo.setText(esp);
         descripcion.setText(textoFigura);
     }
 

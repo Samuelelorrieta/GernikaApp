@@ -54,11 +54,11 @@ public class AjustesUsuario extends Fragment {
         }
 
         continuar.setOnClickListener(v -> {
-            if(castellano.isChecked()||euskera.isChecked())
+            if(castellano.isChecked()||euskera.isChecked()) //Si alguno de los idiomas esta seleccionado
             {
                 String idioma="";
                 if(euskera.isChecked())
-                    idioma="eu";
+                    idioma="eus";
                 if(!(contra.getText().toString().equals("")))
                     actualizarContra(contra);
                 cambiarIdioma(idioma,prefs);

@@ -61,10 +61,10 @@ public class IniciarSesion extends Fragment {
 
     private void ponerContra(String nombre, EditText contra) {
         Usuario usuario = db.daoUsuario().obtenerUsuarioNombre(nombre); //Llama a la BD
-        System.out.println(usuario.contrasenya);
-        if(usuario.guardarContra) //Si existe el usuario y guardo la contraseña
+        if(usuario!=null) //Si existe el usuario y guardo la contraseña
         {
-            contra.setText(usuario.contrasenya); //Pone la contraseña en el campo correspondiente
+            if(usuario.guardarContra)
+                contra.setText(usuario.contrasenya); //Pone la contraseña en el campo correspondiente
         }
     }
 
